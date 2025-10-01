@@ -118,6 +118,14 @@ func _unhandled_input(event):
 						equippedWeapon.model.rotate_z(event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 
 func _physics_process(delta):
+	
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		$AnimationPlayer.play("Jump")
+	elif is_on_floor() and input_dir != Vector2.ZERO:
+		$AnimationPlayer.play("Walk")
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -135,7 +143,7 @@ func _physics_process(delta):
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
-		var input_dir = Input.get_vector("left", "right", "forward", "backward")
+		
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		var moveSpeed = SPEED
 		if running == true:

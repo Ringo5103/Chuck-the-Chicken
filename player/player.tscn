@@ -78,6 +78,93 @@ tracks/0/keys = {
 "values": [Vector3(-1.3127138e-08, 9.600489e-08, 0.27178267)]
 }
 
+[sub_resource type="Animation" id="Animation_boad6"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.1434026e-09, 6.043492e-08, 0.16980308), Vector3(-3.335944e-08, 1.5082321e-07, 0.43535495)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.90617496, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n035_object_001BDAF8:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.90737927, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44/n052_object_001BC5C0:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.860569e-07, -1.4299076e-07, 0.9270841)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10/n062_object_001BB670:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.1205326e-07, -1.8292695e-07, 1.0604272)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.15142477, -2.142094e-22, -1.5707965)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.19029325, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_qjkh3"]
 length = 0.001
 tracks/0/type = "value"
@@ -155,49 +242,78 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
+<<<<<<< Updated upstream
 tracks/6/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:position")
+=======
+tracks/6/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:rotation")
+>>>>>>> Stashed changes
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+<<<<<<< Updated upstream
 "values": [Vector3(0, 0, 0)]
+=======
+"values": [Vector3(-5.1434026e-09, 6.043492e-08, 0.16980308)]
+>>>>>>> Stashed changes
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
+<<<<<<< Updated upstream
 tracks/7/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:rotation")
+=======
+tracks/7/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44/n052_object_001BC5C0:rotation")
+>>>>>>> Stashed changes
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+<<<<<<< Updated upstream
 "values": [Vector3(0, 0, 0)]
+=======
+"values": [Vector3(-1.8590644e-07, -5.211774e-08, 0.5466546)]
+>>>>>>> Stashed changes
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
+<<<<<<< Updated upstream
 tracks/8/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44/n052_object_001BC5C0:rotation")
+=======
+tracks/8/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10/n062_object_001BB670:rotation")
+>>>>>>> Stashed changes
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+<<<<<<< Updated upstream
 "values": [Vector3(0, 0, 0)]
+=======
+"values": [Vector3(-2.2552301e-07, -8.007238e-08, 0.68233645)]
+>>>>>>> Stashed changes
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
+<<<<<<< Updated upstream
 tracks/9/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10/n062_object_001BB670:rotation")
+=======
+tracks/9/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC:rotation")
+>>>>>>> Stashed changes
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+<<<<<<< Updated upstream
 "values": [Vector3(0, 0, 0)]
 }
 tracks/10/type = "value"
@@ -211,6 +327,9 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+=======
+"values": [Vector3(0.15142477, -2.142094e-22, -1.5707965)]
+>>>>>>> Stashed changes
 }
 
 [sub_resource type="Animation" id="Animation_g6k8r"]
@@ -290,29 +409,46 @@ mesh = SubResource("CapsuleMesh_oul6g")
 [node name="Chuck2" parent="." instance=ExtResource("2_qjkh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07284105, 0)
 
+<<<<<<< Updated upstream
 [node name="n001_object_001C2470" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4" index="0"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="n011_object_001C1B20" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048589602, 0.15959519, 0)
+=======
+[node name="n011_object_001C1B20" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="1"]
+transform = Transform3D(0.9856179, -0.16898824, 6.04349e-08, 0.16898824, 0.9856179, 5.1434013e-09, -6.043491e-08, 5.1433617e-09, 0.9999997, 0.0485896, 0.15959515, -1.4210855e-14)
+
+[node name="defaultMaterial_006" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20/n012_object_001C1AEC/n022_object_001C1564" index="1"]
+transform = Transform3D(0.9987899, -0.049180984, -1.7516797e-08, 0.049180984, 0.9987899, 1.644608e-09, 1.7414706e-08, -2.5041018e-09, 1, -0.055970937, -0.023439378, -0.020357784)
+>>>>>>> Stashed changes
 
 [node name="n024_object_001BEB28" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="2"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, -0.0013268, 0.112025395, -0.14548074)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999997, -0.0013268, 0.112025395, -0.14548068)
 
 [node name="n032_object_001BE160" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28/n025_object_001BEAF4/n026_object_001BEAC0/n027_object_001BEA8C/n030_object_001BE5E0" index="3"]
 transform = Transform3D(0.91206306, 1.6763867e-08, 0.41005057, -1.8731189e-08, 1, 7.8079054e-10, -0.4100504, -8.392874e-09, 0.912063, 0.17184436, 0.0067567993, -0.030968845)
 
 [node name="n035_object_001BDAF8" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="3"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, -0.0013268, 0.112025365, 0.1454808)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999998, 0, 0, 0, 0.99999964, -0.0013268, 0.112025335, 0.1454808)
 
 [node name="n043_object_001BD148" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n035_object_001BDAF8/n036_object_001BDAC4/n037_object_001BDA90/n038_object_001BDA5C/n041_object_001BD5BC" index="3"]
 transform = Transform3D(0.9121201, 0, -0.40992305, 0, 1, 0, 0.40992305, 0, 0.9121201, 0.172, 0.007, 0.031)
 
 [node name="n046_object_001BCAE0" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="4"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.12138559, -0.0780336)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.121385574, -0.0780336)
+
+[node name="n047_object_001BCAAC" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0" index="0"]
+transform = Transform3D(-1.6292067e-07, 0.99999994, -2.1175824e-22, -0.98855704, -1.6105639e-07, -0.15084675, -0.15084673, -2.4576053e-08, 0.98855716, 0, 0, 0)
+
+[node name="n052_object_001BC5C0" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44" index="1"]
+transform = Transform3D(0.8542685, -0.5198323, -5.211773e-08, 0.5198323, 0.8542685, 1.8590642e-07, -5.2117635e-08, -1.859065e-07, 0.9999998, 0.27820367, 0.017198201, -0.034462616)
 
 [node name="n056_object_001BBBAC" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="5"]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -0.12138559, 0.07803355)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, -0.12138559, 0.07803354)
+
+[node name="n062_object_001BB670" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10" index="1"]
+transform = Transform3D(0.7761014, -0.6306081, -8.0072375e-08, 0.630608, 0.77610147, 2.25523e-07, -8.007233e-08, -2.2552304e-07, 0.99999994, 0.28008807, 0.017197996, 0.034462392)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rkbax")
