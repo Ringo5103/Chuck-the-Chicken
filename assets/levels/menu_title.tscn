@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://3mc7mbyln66j"]
+
+[ext_resource type="Script" uid="uid://6mh7utb8imqm" path="res://menu_title.gd" id="1_q75tv"]
+[ext_resource type="Texture2D" uid="uid://ctjdno5j7ha2d" path="res://assets/menu/LOGO2.png" id="1_weaej"]
+[ext_resource type="Texture2D" uid="uid://ccatquhq8rkvl" path="res://assets/menu/istockphoto-1047558154-612x612.jpg" id="2_k4cr3"]
+[ext_resource type="Texture2D" uid="uid://b47wuv0lmgbao" path="res://assets/menu/Chuck.png" id="3_q75tv"]
+[ext_resource type="AudioStream" uid="uid://dudh4v8idl5l4" path="res://assets/music/Chuck the Chicken Main Menu Theme Song.mp3" id="4_6d3kw"]
+[ext_resource type="FontFile" uid="uid://wq3nrb67yoc" path="res://assets/fonts/NiseSegaSonic.TTF" id="5_k4cr3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4cr3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+offset_left = 57.0
+offset_top = 56.0
+offset_right = 97.0
+offset_bottom = 96.0
+script = ExtResource("1_q75tv")
+
+[node name="LogoTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -55.0
+offset_right = 182.35658
+offset_bottom = 19.0
+texture = ExtResource("1_weaej")
+expand_mode = 1
+
+[node name="BarnTexture" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -141.0
+offset_top = -56.0
+offset_right = 303.0
+offset_bottom = 189.0
+texture = ExtResource("2_k4cr3")
+expand_mode = 1
+
+[node name="ChuckTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -33.0
+offset_top = 21.82608
+offset_right = 100.0
+offset_bottom = 166.39128
+rotation = -0.065172054
+texture = ExtResource("3_q75tv")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6d3kw")
+autoplay = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 75.0
+offset_right = 267.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.23057419, 0.59818965, 0.15490705, 1)
+theme_override_colors/font_focus_color = Color(0.23137255, 0.6, 0.15686275, 1)
+theme_override_colors/font_pressed_color = Color(0.27657968, 0.84415907, 1.1551381e-06, 1)
+theme_override_colors/font_hover_color = Color(0.23086694, 0.72324276, 1.347661e-06, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.23137255, 0.72156864, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.23137255, 0.6, 0.15686275, 1)
+theme_override_colors/font_outline_color = Color(0.094317116, 0.27690503, 0.058101527, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("5_k4cr3")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxFlat_k4cr3")
+text = "PLAY"
+flat = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
