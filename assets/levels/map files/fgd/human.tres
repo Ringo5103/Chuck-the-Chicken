@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://n2w1jm1m885q"]
+
+[ext_resource type="PackedScene" uid="uid://vejhr03p14lm" path="res://assets/npcs/human/human.tscn" id="1_iyw11"]
+[ext_resource type="Script" uid="uid://ckdvo3mkk4ig1" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_26u8p"]
+
+[resource]
+script = ExtResource("2_26u8p")
+scene_file = ExtResource("1_iyw11")
+apply_rotation_on_map_build = true
+classname = "Human"
+description = "Base human NPC"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"moveDown": 1,
+"npcName": "Human",
+"occupation": "Unemployed"
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+transient_node = false

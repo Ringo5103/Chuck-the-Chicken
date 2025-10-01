@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cjaboherrwgk0"
+path="res://.godot/imported/homet.10.map-bcab82094f589cd61c991bef52e03e63.tres"
+
+[deps]
+
+source_file="res://levels/map files/autosave/homet.10.map"
+dest_files=["res://.godot/imported/homet.10.map-bcab82094f589cd61c991bef52e03e63.tres"]
+
+[params]
+

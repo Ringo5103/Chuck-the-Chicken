@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=8 format=3 uid="uid://1ld7ofefsf13"]
+
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="1_8ppfs"]
+[ext_resource type="Script" uid="uid://br62xikttfk04" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="3_nhsm2"]
+[ext_resource type="Resource" uid="uid://n2w1jm1m885q" path="res://assets/levels/map files/fgd/human.tres" id="6_mqvef"]
+
+[sub_resource type="Resource" id="Resource_06ly4"]
+metadata/__load_path__ = "res://assets/environment/nature/lowpolytree/tree.tres"
+
+[sub_resource type="Resource" id="Resource_61orx"]
+metadata/__load_path__ = "res://assets/environment/nature/lowpolytree/tree2.tres"
+
+[sub_resource type="Resource" id="Resource_fisoq"]
+metadata/__load_path__ = "res://interactable/door.tres"
+
+[sub_resource type="Resource" id="Resource_od5ak"]
+metadata/__load_path__ = "res://interactable/light2.tres"
+
+[resource]
+script = ExtResource("3_nhsm2")
+target_folder = "E:/TrenchBroom 2/games/Generic"
+fgd_name = "Generic"
+base_fgd_files = Array[Resource]([ExtResource("1_8ppfs")])
+entity_definitions = Array[Resource]([SubResource("Resource_06ly4"), SubResource("Resource_61orx"), SubResource("Resource_fisoq"), SubResource("Resource_od5ak"), ExtResource("6_mqvef")])

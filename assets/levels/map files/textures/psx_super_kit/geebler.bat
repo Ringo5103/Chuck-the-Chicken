@@ -1,0 +1,1 @@
+for %%i in ("E:\TrenchBroom 2\generic\textures\psx_super_kit - Copy\*") do  md "E:\TrenchBroom 2\generic\textures\psx_super_kit - Copy\%%~ni"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://whda3nirp4xv"]
+
+[ext_resource type="Script" uid="uid://bnebeq1r0g4qx" path="res://assets/npcs/enemy.gd" id="1_clt00"]
+[ext_resource type="PackedScene" uid="uid://k78p46oqf4ia" path="res://assets/npcs/human.glb" id="1_krc4b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ce4n4"]
+radius = 0.3334961
+height = 2.5078125
+
+[node name="Enemy" type="Area3D" groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_clt00")
+
+[node name="human" parent="." instance=ExtResource("1_krc4b")]
+
+[node name="Head_2" parent="human/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 4.768372e-07, -1.1733937e-08, 0.9996973, 0.024607785, -4.7669286e-07, -0.0246078, 0.99969715, 2.2559696e-15, 2.1591039, 0.03799205)
+
+[node name="CookieHead" parent="human/Armature/Skeleton3D/Head_2" index="0"]
+visible = false
+
+[node name="Beard2" parent="human/Armature/Skeleton3D/Head_2/Head" index="1"]
+visible = false
+
+[node name="Hair1" parent="human/Armature/Skeleton3D/Head_2/Head" index="2"]
+visible = false
+
+[node name="Mustache2" parent="human/Armature/Skeleton3D/Head_2/Head" index="5"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.2567033, 0.002399683)
+shape = SubResource("CapsuleShape3D_ce4n4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="human"]

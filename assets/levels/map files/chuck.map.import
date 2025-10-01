@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://srhto4lpfl2p"
+path="res://.godot/imported/chuck.map-8110756ee7cef5f547bd72b91e6db571.tres"
+
+[deps]
+
+source_file="res://assets/levels/map files/chuck.map"
+dest_files=["res://.godot/imported/chuck.map-8110756ee7cef5f547bd72b91e6db571.tres"]
+
+[params]
+

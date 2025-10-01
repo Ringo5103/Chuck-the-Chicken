@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://bsgenvuqgvxhv"]
+
+[ext_resource type="Script" uid="uid://5sd87diwunas" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://b7rx5snmkt6ba" path="res://assets/environment/rings/sonic1rings.png" id="2_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://yuomfyfeegaw" path="res://assets/environment/rings/sonic_ring.wav" id="2_rkbax"]
+[ext_resource type="FontFile" uid="uid://covg4gmghf1em" path="res://assets/EightBitDragon-anqx.ttf" id="3_yw30f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
+radius = 0.35
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
+radius = 0.25
+
+[sub_resource type="Animation" id="Animation_yw30f"]
+resource_name = "Die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.646, -1.139)]
+}
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
+_data = {
+&"Die": SubResource("Animation_yw30f"),
+&"RESET": SubResource("Animation_qjkh3")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder")]
+script = ExtResource("1_oul6g")
+SPEED = 10
+raycast = NodePath("Head/PlayerCam/RayCastHolder/RayCast3D")
+head = NodePath("Head")
+camera = NodePath("Head/PlayerCam")
+weaponHolder = NodePath("Head/PlayerCam/Items/Hand")
+raycastHolder = NodePath("Head/PlayerCam/RayCastHolder")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rkbax")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56003594, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.8535508, 0.5210096, 0, -0.5210096, 0.85355085, 0.5, 2.2046976, 3.5309415)
+
+[node name="RayCastHolder" type="Node3D" parent="Head/PlayerCam"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/PlayerCam/RayCastHolder"]
+target_position = Vector3(0, 0, -10)
+
+[node name="Crosshair" type="Sprite3D" parent="Head/PlayerCam/RayCastHolder/RayCast3D"]
+
+[node name="Items" type="Node3D" parent="Head/PlayerCam"]
+
+[node name="Hand" type="Node3D" parent="Head/PlayerCam/Items"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/PlayerCam"]
+follow_viewport_enabled = true
+
+[node name="Rings" type="HBoxContainer" parent="Head/PlayerCam/CanvasLayer"]
+offset_right = 39.0
+offset_bottom = 11.0
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="Head/PlayerCam/CanvasLayer/Rings"]
+layout_mode = 2
+texture = ExtResource("2_g1dw6")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Head/PlayerCam/CanvasLayer/Rings"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_yw30f")
+theme_override_font_sizes/font_size = 10
+text = "3"
+
+[node name="RingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rkbax")
+max_polyphony = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qjkh3")
+}

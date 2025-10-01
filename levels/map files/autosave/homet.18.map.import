@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://ce0hy8rak5ij8"
+path="res://.godot/imported/homet.18.map-91c8b3f36a2c4e294d3dd57f42622236.tres"
+
+[deps]
+
+source_file="res://levels/map files/autosave/homet.18.map"
+dest_files=["res://.godot/imported/homet.18.map-91c8b3f36a2c4e294d3dd57f42622236.tres"]
+
+[params]
+

@@ -1,0 +1,320 @@
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/base_materials/Cardboard;textures/base_materials/Clay;textures/base_materials/Cloth;textures/base_materials/Concrete;textures/base_materials/Marble;textures/base_materials/Metal;textures/base_materials/Plaster;textures/base_materials/Stone;textures/base_materials/Wood;textures/doors;textures/materials;textures/misc;textures/paths;textures/photoreal_textures1/Concrete;textures/photoreal_textures1/Fire;textures/photoreal_textures1/Grass;textures/photoreal_textures1/Ice;textures/photoreal_textures1/Metal;textures/photoreal_textures1/Stone;textures/photoreal_textures1/Tile;textures/photoreal_textures1/Trees;textures/photoreal_textures1/Wood;textures/photoreal_textures2/Ground;textures/photoreal_textures2/Misc;textures/photoreal_textures2/Pebbles;textures/photoreal_textures2/Plant;textures/photoreal_textures2/Roof;textures/photoreal_textures2/Rust;textures/photoreal_textures2/Wall;textures/photoreal_textures2/Woven;textures/psx_super_kit;textures/psx_super_kit_2;textures/seamless_abstract;textures/tiny_textures1/Bricks;textures/tiny_textures1/Grass;textures/tiny_textures1/Roofs;textures/tiny_textures1/Tile;textures/tiny_textures1/Wood;textures/tiny_textures2/Brick;textures/tiny_textures2/Dirt;textures/tiny_textures2/Elements;textures/tiny_textures2/Metal;textures/tiny_textures2/Plaster;textures/tiny_textures2/Stone;textures/tiny_textures2/Tile;textures/tiny_textures2/Wood;textures/tiny_textures3/Animal;textures/tiny_textures3/Box;textures/tiny_textures3/Cloth;textures/tiny_textures3/Elements;textures/tiny_textures3/Gem;textures/tiny_textures3/Grating;textures/tiny_textures3/Metal;textures/tiny_textures3/Stone;textures/tiny_textures3/Terrain;textures/tiny_textures3/Weave"
+// brush 0
+{
+( -1024 -64 -16 ) ( -1024 -63 -16 ) ( -1024 -64 -15 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+( -64 -1024 -16 ) ( -64 -1024 -15 ) ( -63 -1024 -16 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+( 64 1024 16 ) ( 65 1024 16 ) ( 64 1024 17 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+( 1024 64 16 ) ( 1024 64 17 ) ( 1024 65 16 ) tiny_textures1/Grass/Grass_21-128x128 0 0 0 1 1
+}
+// brush 1
+{
+( 368 -304 16 ) ( 368 -303 16 ) ( 368 -304 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 368 -304 16 ) ( 368 -304 17 ) ( 369 -304 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 368 -304 16 ) ( 369 -304 16 ) ( 368 -303 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -272 32 ) ( 400 -271 32 ) ( 401 -272 32 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -272 32 ) ( 401 -272 32 ) ( 400 -272 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 400 -272 32 ) ( 400 -272 33 ) ( 400 -271 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 2
+{
+( 368 -368 16 ) ( 368 -367 16 ) ( 368 -368 17 ) materials/Bricks073B_128 80 0 0 1 1
+( 368 -368 16 ) ( 368 -368 17 ) ( 369 -368 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 368 -368 16 ) ( 369 -368 16 ) ( 368 -367 16 ) materials/Bricks073B_128 -16 -80 0 1 1
+( 400 -336 48 ) ( 400 -335 48 ) ( 401 -336 48 ) materials/Bricks073B_128 -16 -80 0 1 1
+( 400 -336 32 ) ( 401 -336 32 ) ( 400 -336 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 400 -336 32 ) ( 400 -336 33 ) ( 400 -335 32 ) materials/Bricks073B_128 80 0 0 1 1
+}
+// brush 3
+{
+( 368 -432 16 ) ( 368 -431 16 ) ( 368 -432 17 ) materials/Bricks073B_128 80 0 0 1 1
+( 368 -432 16 ) ( 368 -432 17 ) ( 369 -432 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 368 -432 16 ) ( 369 -432 16 ) ( 368 -431 16 ) materials/Bricks073B_128 -16 -80 0 1 1
+( 400 -400 64 ) ( 400 -399 64 ) ( 401 -400 64 ) materials/Bricks073B_128 -16 -80 0 1 1
+( 400 -400 32 ) ( 401 -400 32 ) ( 400 -400 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 400 -400 32 ) ( 400 -400 33 ) ( 400 -399 32 ) materials/Bricks073B_128 80 0 0 1 1
+}
+// brush 4
+{
+( 368 -496 16 ) ( 368 -495 16 ) ( 368 -496 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 368 -496 16 ) ( 368 -496 17 ) ( 369 -496 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 368 -496 16 ) ( 369 -496 16 ) ( 368 -495 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -464 80 ) ( 400 -463 80 ) ( 401 -464 80 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -464 32 ) ( 401 -464 32 ) ( 400 -464 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 400 -464 32 ) ( 400 -464 33 ) ( 400 -463 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 5
+{
+( 368 -560 16 ) ( 368 -559 16 ) ( 368 -560 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 368 -560 16 ) ( 368 -560 17 ) ( 369 -560 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 368 -560 16 ) ( 369 -560 16 ) ( 368 -559 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -528 96 ) ( 400 -527 96 ) ( 401 -528 96 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 400 -528 32 ) ( 401 -528 32 ) ( 400 -528 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 400 -528 32 ) ( 400 -528 33 ) ( 400 -527 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 6
+{
+( 432 -560 16 ) ( 432 -559 16 ) ( 432 -560 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 432 -560 16 ) ( 432 -560 17 ) ( 433 -560 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 432 -560 16 ) ( 433 -560 16 ) ( 432 -559 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -528 112 ) ( 464 -527 112 ) ( 465 -528 112 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -528 32 ) ( 465 -528 32 ) ( 464 -528 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 464 -528 32 ) ( 464 -528 33 ) ( 464 -527 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 7
+{
+( 432 -496 16 ) ( 432 -495 16 ) ( 432 -496 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 432 -496 16 ) ( 432 -496 17 ) ( 433 -496 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 432 -496 16 ) ( 433 -496 16 ) ( 432 -495 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -464 128 ) ( 464 -463 128 ) ( 465 -464 128 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -464 32 ) ( 465 -464 32 ) ( 464 -464 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 464 -464 32 ) ( 464 -464 33 ) ( 464 -463 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 8
+{
+( 432 -432 16 ) ( 432 -431 16 ) ( 432 -432 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 432 -432 16 ) ( 432 -432 17 ) ( 433 -432 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 432 -432 16 ) ( 433 -432 16 ) ( 432 -431 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -400 144 ) ( 464 -399 144 ) ( 465 -400 144 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 464 -400 32 ) ( 465 -400 32 ) ( 464 -400 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 464 -400 32 ) ( 464 -400 33 ) ( 464 -399 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 9
+{
+( 432 -368 16 ) ( 432 -367 16 ) ( 432 -368 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 432 -368 16 ) ( 432 -368 17 ) ( 433 -368 16 ) materials/Bricks073B_128 -32 0 0 1 1
+( 432 -368 16 ) ( 433 -368 16 ) ( 432 -367 16 ) materials/Bricks073B_128 -32 -64 0 1 1
+( 464 -336 160 ) ( 464 -335 160 ) ( 465 -336 160 ) materials/Bricks073B_128 -32 -64 0 1 1
+( 464 -336 32 ) ( 465 -336 32 ) ( 464 -336 33 ) materials/Bricks073B_128 -32 0 0 1 1
+( 464 -336 32 ) ( 464 -336 33 ) ( 464 -335 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 10
+{
+( 432 -304 16 ) ( 432 -303 16 ) ( 432 -304 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 432 -304 16 ) ( 432 -304 17 ) ( 433 -304 16 ) materials/Bricks073B_128 -32 0 0 1 1
+( 432 -304 16 ) ( 433 -304 16 ) ( 432 -303 16 ) materials/Bricks073B_128 -32 -64 0 1 1
+( 464 -272 176 ) ( 464 -271 176 ) ( 465 -272 176 ) materials/Bricks073B_128 -32 -64 0 1 1
+( 464 -272 32 ) ( 465 -272 32 ) ( 464 -272 33 ) materials/Bricks073B_128 -32 0 0 1 1
+( 464 -272 32 ) ( 464 -272 33 ) ( 464 -271 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 11
+{
+( 496 -304 16 ) ( 496 -303 16 ) ( 496 -304 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 496 -304 16 ) ( 496 -304 17 ) ( 497 -304 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 496 -304 16 ) ( 497 -304 16 ) ( 496 -303 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -272 176 ) ( 528 -271 176 ) ( 529 -272 176 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -272 32 ) ( 529 -272 32 ) ( 528 -272 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 528 -272 32 ) ( 528 -272 33 ) ( 528 -271 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 12
+{
+( 496 -368 16 ) ( 496 -367 16 ) ( 496 -368 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 496 -368 16 ) ( 496 -368 17 ) ( 497 -368 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 496 -368 16 ) ( 497 -368 16 ) ( 496 -367 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -336 192 ) ( 528 -335 192 ) ( 529 -336 192 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -336 32 ) ( 529 -336 32 ) ( 528 -336 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 528 -336 32 ) ( 528 -336 33 ) ( 528 -335 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 13
+{
+( 496 -432 16 ) ( 496 -431 16 ) ( 496 -432 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 496 -432 16 ) ( 496 -432 17 ) ( 497 -432 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 496 -432 16 ) ( 497 -432 16 ) ( 496 -431 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -400 208 ) ( 528 -399 208 ) ( 529 -400 208 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -400 32 ) ( 529 -400 32 ) ( 528 -400 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 528 -400 32 ) ( 528 -400 33 ) ( 528 -399 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 14
+{
+( 496 -496 16 ) ( 496 -495 16 ) ( 496 -496 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 496 -496 16 ) ( 496 -496 17 ) ( 497 -496 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 496 -496 16 ) ( 497 -496 16 ) ( 496 -495 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -464 224 ) ( 528 -463 224 ) ( 529 -464 224 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -464 32 ) ( 529 -464 32 ) ( 528 -464 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 528 -464 32 ) ( 528 -464 33 ) ( 528 -463 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 15
+{
+( 496 -560 16 ) ( 496 -559 16 ) ( 496 -560 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 496 -560 16 ) ( 496 -560 17 ) ( 497 -560 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 496 -560 16 ) ( 497 -560 16 ) ( 496 -559 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -528 240 ) ( 528 -527 240 ) ( 529 -528 240 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 528 -528 32 ) ( 529 -528 32 ) ( 528 -528 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 528 -528 32 ) ( 528 -528 33 ) ( 528 -527 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 16
+{
+( 560 -560 16 ) ( 560 -559 16 ) ( 560 -560 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 560 -560 16 ) ( 560 -560 17 ) ( 561 -560 16 ) materials/Bricks073B_128 -80 0 0 1 1
+( 560 -560 16 ) ( 561 -560 16 ) ( 560 -559 16 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -528 256 ) ( 592 -527 256 ) ( 593 -528 256 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -528 32 ) ( 593 -528 32 ) ( 592 -528 33 ) materials/Bricks073B_128 -80 0 0 1 1
+( 592 -528 32 ) ( 592 -528 33 ) ( 592 -527 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 17
+{
+( 560 -496 16 ) ( 560 -495 16 ) ( 560 -496 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 560 -496 16 ) ( 560 -496 17 ) ( 561 -496 16 ) materials/Bricks073B_128 -80 0 0 1 1
+( 560 -496 16 ) ( 561 -496 16 ) ( 560 -495 16 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -464 272 ) ( 592 -463 272 ) ( 593 -464 272 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -464 32 ) ( 593 -464 32 ) ( 592 -464 33 ) materials/Bricks073B_128 -80 0 0 1 1
+( 592 -464 32 ) ( 592 -464 33 ) ( 592 -463 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 18
+{
+( 560 -432 16 ) ( 560 -431 16 ) ( 560 -432 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 560 -432 16 ) ( 560 -432 17 ) ( 561 -432 16 ) materials/Bricks073B_128 -80 0 0 1 1
+( 560 -432 16 ) ( 561 -432 16 ) ( 560 -431 16 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -400 288 ) ( 592 -399 288 ) ( 593 -400 288 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -400 32 ) ( 593 -400 32 ) ( 592 -400 33 ) materials/Bricks073B_128 -80 0 0 1 1
+( 592 -400 32 ) ( 592 -400 33 ) ( 592 -399 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 19
+{
+( 560 -368 16 ) ( 560 -367 16 ) ( 560 -368 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 560 -368 16 ) ( 560 -368 17 ) ( 561 -368 16 ) materials/Bricks073B_128 -80 0 0 1 1
+( 560 -368 16 ) ( 561 -368 16 ) ( 560 -367 16 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -336 304 ) ( 592 -335 304 ) ( 593 -336 304 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -336 32 ) ( 593 -336 32 ) ( 592 -336 33 ) materials/Bricks073B_128 -80 0 0 1 1
+( 592 -336 32 ) ( 592 -336 33 ) ( 592 -335 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 20
+{
+( 560 -304 16 ) ( 560 -303 16 ) ( 560 -304 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 560 -304 16 ) ( 560 -304 17 ) ( 561 -304 16 ) materials/Bricks073B_128 -80 0 0 1 1
+( 560 -304 16 ) ( 561 -304 16 ) ( 560 -303 16 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -272 320 ) ( 592 -271 320 ) ( 593 -272 320 ) materials/Bricks073B_128 -80 -64 0 1 1
+( 592 -272 32 ) ( 593 -272 32 ) ( 592 -272 33 ) materials/Bricks073B_128 -80 0 0 1 1
+( 592 -272 32 ) ( 592 -272 33 ) ( 592 -271 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 21
+{
+( 624 -560 16 ) ( 624 -559 16 ) ( 624 -560 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 624 -560 16 ) ( 624 -560 17 ) ( 625 -560 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 624 -560 16 ) ( 625 -560 16 ) ( 624 -559 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -528 400 ) ( 656 -527 400 ) ( 657 -528 400 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -528 32 ) ( 657 -528 32 ) ( 656 -528 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 656 -528 32 ) ( 656 -528 33 ) ( 656 -527 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 22
+{
+( 624 -496 16 ) ( 624 -495 16 ) ( 624 -496 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 624 -496 16 ) ( 624 -496 17 ) ( 625 -496 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 624 -496 16 ) ( 625 -496 16 ) ( 624 -495 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -464 384 ) ( 656 -463 384 ) ( 657 -464 384 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -464 32 ) ( 657 -464 32 ) ( 656 -464 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 656 -464 32 ) ( 656 -464 33 ) ( 656 -463 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 23
+{
+( 624 -432 16 ) ( 624 -431 16 ) ( 624 -432 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 624 -432 16 ) ( 624 -432 17 ) ( 625 -432 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 624 -432 16 ) ( 625 -432 16 ) ( 624 -431 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -400 368 ) ( 656 -399 368 ) ( 657 -400 368 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -400 32 ) ( 657 -400 32 ) ( 656 -400 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 656 -400 32 ) ( 656 -400 33 ) ( 656 -399 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 24
+{
+( 624 -368 16 ) ( 624 -367 16 ) ( 624 -368 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 624 -368 16 ) ( 624 -368 17 ) ( 625 -368 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 624 -368 16 ) ( 625 -368 16 ) ( 624 -367 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -336 352 ) ( 656 -335 352 ) ( 657 -336 352 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -336 32 ) ( 657 -336 32 ) ( 656 -336 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 656 -336 32 ) ( 656 -336 33 ) ( 656 -335 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 25
+{
+( 624 -304 16 ) ( 624 -303 16 ) ( 624 -304 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 624 -304 16 ) ( 624 -304 17 ) ( 625 -304 16 ) materials/Bricks073B_128 -16 0 0 1 1
+( 624 -304 16 ) ( 625 -304 16 ) ( 624 -303 16 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -272 336 ) ( 656 -271 336 ) ( 657 -272 336 ) materials/Bricks073B_128 -16 -64 0 1 1
+( 656 -272 32 ) ( 657 -272 32 ) ( 656 -272 33 ) materials/Bricks073B_128 -16 0 0 1 1
+( 656 -272 32 ) ( 656 -272 33 ) ( 656 -271 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 26
+{
+( 80 112 16 ) ( 80 113 16 ) ( 80 112 17 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 112 16 ) ( 80 112 17 ) ( 81 112 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 112 16 ) ( 81 112 16 ) ( 80 113 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 144 32 ) ( 112 145 32 ) ( 113 144 32 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 144 32 ) ( 113 144 32 ) ( 112 144 33 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 144 32 ) ( 112 144 33 ) ( 112 145 32 ) materials/Bricks073B_128 0 0 0 1 1
+}
+// brush 27
+{
+( 80 192 16 ) ( 80 193 16 ) ( 80 192 17 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 192 16 ) ( 80 192 17 ) ( 81 192 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 192 16 ) ( 81 192 16 ) ( 80 193 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 224 48 ) ( 112 225 48 ) ( 113 224 48 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 224 32 ) ( 113 224 32 ) ( 112 224 33 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 224 32 ) ( 112 224 33 ) ( 112 225 32 ) materials/Bricks073B_128 0 0 0 1 1
+}
+// brush 28
+{
+( 176 112 16 ) ( 176 113 16 ) ( 176 112 17 ) materials/Bricks073B_128 80 0 0 1 1
+( 176 112 16 ) ( 176 112 17 ) ( 177 112 16 ) materials/Bricks073B_128 -96 0 0 1 1
+( 176 112 16 ) ( 177 112 16 ) ( 176 113 16 ) materials/Bricks073B_128 -96 -80 0 1 1
+( 208 144 48 ) ( 208 145 48 ) ( 209 144 48 ) materials/Bricks073B_128 -96 -80 0 1 1
+( 208 144 32 ) ( 209 144 32 ) ( 208 144 33 ) materials/Bricks073B_128 -96 0 0 1 1
+( 208 144 32 ) ( 208 144 33 ) ( 208 145 32 ) materials/Bricks073B_128 80 0 0 1 1
+}
+// brush 29
+{
+( 80 0 16 ) ( 80 1 16 ) ( 80 0 17 ) materials/Bricks073B_128 64 0 0 1 1
+( 80 0 16 ) ( 80 0 17 ) ( 81 0 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 0 16 ) ( 81 0 16 ) ( 80 1 16 ) materials/Bricks073B_128 0 -64 0 1 1
+( 112 32 48 ) ( 112 33 48 ) ( 113 32 48 ) materials/Bricks073B_128 0 -64 0 1 1
+( 112 32 32 ) ( 113 32 32 ) ( 112 32 33 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 32 32 ) ( 112 32 33 ) ( 112 33 32 ) materials/Bricks073B_128 64 0 0 1 1
+}
+// brush 30
+{
+( -48 112 16 ) ( -48 113 16 ) ( -48 112 17 ) materials/Bricks073B_128 -48 0 0 1 1
+( -48 112 16 ) ( -48 112 17 ) ( -47 112 16 ) materials/Bricks073B_128 0 0 0 1 1
+( -48 112 16 ) ( -47 112 16 ) ( -48 113 16 ) materials/Bricks073B_128 0 48 0 1 1
+( -16 144 48 ) ( -16 145 48 ) ( -15 144 48 ) materials/Bricks073B_128 0 48 0 1 1
+( -16 144 32 ) ( -15 144 32 ) ( -16 144 33 ) materials/Bricks073B_128 0 0 0 1 1
+( -16 144 32 ) ( -16 144 33 ) ( -16 145 32 ) materials/Bricks073B_128 -48 0 0 1 1
+}
+// brush 31
+{
+( -176 112 16 ) ( -176 113 16 ) ( -176 112 17 ) materials/Bricks073B_128 -48 0 0 1 1
+( -176 112 16 ) ( -176 112 17 ) ( -175 112 16 ) materials/Bricks073B_128 0 0 0 1 1
+( -176 112 16 ) ( -175 112 16 ) ( -176 113 16 ) materials/Bricks073B_128 0 48 0 1 1
+( -144 144 80 ) ( -144 145 80 ) ( -143 144 80 ) materials/Bricks073B_128 0 48 0 1 1
+( -144 144 32 ) ( -143 144 32 ) ( -144 144 33 ) materials/Bricks073B_128 0 0 0 1 1
+( -144 144 32 ) ( -144 144 33 ) ( -144 145 32 ) materials/Bricks073B_128 -48 0 0 1 1
+}
+// brush 32
+{
+( 80 272 16 ) ( 80 273 16 ) ( 80 272 17 ) materials/Bricks073B_128 -80 0 0 1 1
+( 80 272 16 ) ( 80 272 17 ) ( 81 272 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 272 16 ) ( 81 272 16 ) ( 80 273 16 ) materials/Bricks073B_128 0 80 0 1 1
+( 112 304 80 ) ( 112 305 80 ) ( 113 304 80 ) materials/Bricks073B_128 0 80 0 1 1
+( 112 304 32 ) ( 113 304 32 ) ( 112 304 33 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 304 32 ) ( 112 304 33 ) ( 112 305 32 ) materials/Bricks073B_128 -80 0 0 1 1
+}
+// brush 33
+{
+( 272 112 16 ) ( 272 113 16 ) ( 272 112 17 ) materials/Bricks073B_128 80 0 0 1 1
+( 272 112 16 ) ( 272 112 17 ) ( 273 112 16 ) materials/Bricks073B_128 -64 0 0 1 1
+( 272 112 16 ) ( 273 112 16 ) ( 272 113 16 ) materials/Bricks073B_128 -64 -80 0 1 1
+( 304 144 80 ) ( 304 145 80 ) ( 305 144 80 ) materials/Bricks073B_128 -64 -80 0 1 1
+( 304 144 32 ) ( 305 144 32 ) ( 304 144 33 ) materials/Bricks073B_128 -64 0 0 1 1
+( 304 144 32 ) ( 304 144 33 ) ( 304 145 32 ) materials/Bricks073B_128 80 0 0 1 1
+}
+// brush 34
+{
+( 80 -112 16 ) ( 80 -111 16 ) ( 80 -112 17 ) materials/Bricks073B_128 48 0 0 1 1
+( 80 -112 16 ) ( 80 -112 17 ) ( 81 -112 16 ) materials/Bricks073B_128 0 0 0 1 1
+( 80 -112 16 ) ( 81 -112 16 ) ( 80 -111 16 ) materials/Bricks073B_128 0 -48 0 1 1
+( 112 -80 80 ) ( 112 -79 80 ) ( 113 -80 80 ) materials/Bricks073B_128 0 -48 0 1 1
+( 112 -80 32 ) ( 113 -80 32 ) ( 112 -80 33 ) materials/Bricks073B_128 0 0 0 1 1
+( 112 -80 32 ) ( 112 -80 33 ) ( 112 -79 32 ) materials/Bricks073B_128 48 0 0 1 1
+}
+}
