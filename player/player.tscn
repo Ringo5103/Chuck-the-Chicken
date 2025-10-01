@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsgenvuqgvxhv"]
+[gd_scene load_steps=13 format=3 uid="uid://bsgenvuqgvxhv"]
 
 [ext_resource type="Script" uid="uid://5sd87diwunas" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://b7rx5snmkt6ba" path="res://assets/environment/rings/sonic1rings.png" id="2_g1dw6"]
@@ -21,7 +21,7 @@ tracks/0/path = NodePath("MeshInstance3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.9916667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
@@ -37,6 +37,45 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.646, -1.139)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.646, -1.139)]
+}
+
+[sub_resource type="Animation" id="Animation_boad6"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.3127138e-08, 9.600489e-08, 0.27178267)]
 }
 
 [sub_resource type="Animation" id="Animation_qjkh3"]
@@ -113,6 +152,66 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44/n052_object_001BC5C0:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10/n062_object_001BB670:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_g6k8r"]
 resource_name = "Walk"
@@ -170,6 +269,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
 _data = {
 &"Die": SubResource("Animation_yw30f"),
+&"Jump": SubResource("Animation_boad6"),
 &"RESET": SubResource("Animation_qjkh3"),
 &"Walk": SubResource("Animation_g6k8r")
 }
@@ -189,6 +289,12 @@ mesh = SubResource("CapsuleMesh_oul6g")
 
 [node name="Chuck2" parent="." instance=ExtResource("2_qjkh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07284105, 0)
+
+[node name="n001_object_001C2470" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="n011_object_001C1B20" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048589602, 0.15959519, 0)
 
 [node name="n024_object_001BEB28" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="2"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, -0.0013268, 0.112025395, -0.14548074)
