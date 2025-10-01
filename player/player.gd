@@ -146,6 +146,13 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, moveSpeed)
 			velocity.z = move_toward(velocity.z, 0, moveSpeed)
+		if (direction != Vector3(0.0, 0.0, 0.0)) && ($AnimationPlayer.is_playing() == false) && (is_on_floor() == true):
+			print("Walk")
+			$AnimationPlayer.play("Walk")
+			#$AnimationPlayer.speed_scale = 2
+		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
+			$AnimationPlayer.stop()
+			$AnimationPlayer.speed_scale = 1
 		move_and_slide()
 
 		if unzoom == 1:
