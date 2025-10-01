@@ -50,7 +50,8 @@ var doubleJumpCooldownTimer : float = 0
 @export var crosshairLabel : Node3D
 @export var crosshairLabelAbove : Node3D
 @export var crosshairLabelBelow : Node3D
-@onready var ringLabel = $Head/PlayerCam/CanvasLayer/Rings/Label
+@export var yRotation : Node3D
+@export var ringLabel : Control
 
 func _ready():
 	spawnPoint = global_transform
@@ -95,7 +96,7 @@ func _unhandled_input(event):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			if zoomed == false:
-				rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
+				yRotation.rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 				mouseInput = event.relative
@@ -149,7 +150,7 @@ func _physics_process(delta):
 		if (direction != Vector3(0.0, 0.0, 0.0)) && ($AnimationPlayer.is_playing() == false) && (is_on_floor() == true):
 			print("Walk")
 			$AnimationPlayer.play("Walk")
-			#$AnimationPlayer.speed_scale = 2
+			$AnimationPlayer.speed_scale = 2
 		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
 			$AnimationPlayer.stop()
 			$AnimationPlayer.speed_scale = 1

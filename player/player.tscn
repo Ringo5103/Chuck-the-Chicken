@@ -174,14 +174,16 @@ _data = {
 &"Walk": SubResource("Animation_g6k8r")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder", "yRotation", "ringLabel")]
 script = ExtResource("1_oul6g")
 SPEED = 10
-raycast = NodePath("Head/PlayerCam/RayCastHolder/RayCast3D")
-head = NodePath("Head")
-camera = NodePath("Head/PlayerCam")
-weaponHolder = NodePath("Head/PlayerCam/Items/Hand")
-raycastHolder = NodePath("Head/PlayerCam/RayCastHolder")
+raycast = NodePath("Y_Rotation/Head/PlayerCam/RayCastHolder/RayCast3D")
+head = NodePath("Y_Rotation/Head")
+camera = NodePath("Y_Rotation/Head/PlayerCam")
+weaponHolder = NodePath("Y_Rotation/Head/PlayerCam/Items/Hand")
+raycastHolder = NodePath("Y_Rotation/Head/PlayerCam/RayCastHolder")
+yRotation = NodePath("Y_Rotation")
+ringLabel = NodePath("Y_Rotation/Head/PlayerCam/CanvasLayer/Rings/Label")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -211,37 +213,39 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rkbax")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Y_Rotation" type="Node3D" parent="."]
+
+[node name="Head" type="Node3D" parent="Y_Rotation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56003594, 0)
 
-[node name="PlayerCam" type="Camera3D" parent="Head"]
+[node name="PlayerCam" type="Camera3D" parent="Y_Rotation/Head"]
 transform = Transform3D(1, 0, 0, 0, 0.8535508, 0.5210096, 0, -0.5210096, 0.85355085, 0.5, 2.2046976, 3.5309415)
 
-[node name="RayCastHolder" type="Node3D" parent="Head/PlayerCam"]
+[node name="RayCastHolder" type="Node3D" parent="Y_Rotation/Head/PlayerCam"]
 
-[node name="RayCast3D" type="RayCast3D" parent="Head/PlayerCam/RayCastHolder"]
+[node name="RayCast3D" type="RayCast3D" parent="Y_Rotation/Head/PlayerCam/RayCastHolder"]
 target_position = Vector3(0, 0, -10)
 
-[node name="Crosshair" type="Sprite3D" parent="Head/PlayerCam/RayCastHolder/RayCast3D"]
+[node name="Crosshair" type="Sprite3D" parent="Y_Rotation/Head/PlayerCam/RayCastHolder/RayCast3D"]
 
-[node name="Items" type="Node3D" parent="Head/PlayerCam"]
+[node name="Items" type="Node3D" parent="Y_Rotation/Head/PlayerCam"]
 
-[node name="Hand" type="Node3D" parent="Head/PlayerCam/Items"]
+[node name="Hand" type="Node3D" parent="Y_Rotation/Head/PlayerCam/Items"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Head/PlayerCam"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Y_Rotation/Head/PlayerCam"]
 follow_viewport_enabled = true
 
-[node name="Rings" type="HBoxContainer" parent="Head/PlayerCam/CanvasLayer"]
+[node name="Rings" type="HBoxContainer" parent="Y_Rotation/Head/PlayerCam/CanvasLayer"]
 offset_right = 39.0
 offset_bottom = 11.0
 theme_override_constants/separation = 5
 
-[node name="TextureRect" type="TextureRect" parent="Head/PlayerCam/CanvasLayer/Rings"]
+[node name="TextureRect" type="TextureRect" parent="Y_Rotation/Head/PlayerCam/CanvasLayer/Rings"]
 layout_mode = 2
 texture = ExtResource("2_g1dw6")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="Head/PlayerCam/CanvasLayer/Rings"]
+[node name="Label" type="Label" parent="Y_Rotation/Head/PlayerCam/CanvasLayer/Rings"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -254,6 +258,7 @@ text = "3"
 
 [node name="RingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rkbax")
+volume_db = -2.0
 max_polyphony = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
