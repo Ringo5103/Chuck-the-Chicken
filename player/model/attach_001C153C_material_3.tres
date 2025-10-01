@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drqjqdi7nfelr"]
+
+[resource]
+resource_name = "attach_001C153C_material_3"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+roughness = 0.6
