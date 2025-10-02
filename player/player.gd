@@ -124,24 +124,18 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	if controllable == true:
-		# Handle jump.
-		if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
-			if !is_on_floor() && doubleJumped == false:
-				doubleJumped = true
-				#doubleJumpCooldownTimer = doubleJumpCooldown
-			velocity.y = JUMP_VELOCITY
-		if is_on_floor() && doubleJumped == true:
-			doubleJumped = false
 #		getInteraction()
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		var moveSpeed = SPEED
 		if running == true:
 			moveSpeed *= runSpeedMult
 		if direction:
+			if is_on_floor():
+				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
 			velocity.x = direction.x * moveSpeed
 			velocity.z = direction.z * moveSpeed
 		else:
@@ -154,7 +148,19 @@ func _physics_process(delta):
 		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
 			$AnimationPlayer.stop()
 			$AnimationPlayer.speed_scale = 1
+		if !is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
+			$AnimationPlayer.stop()
 		move_and_slide()
+		
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
+			if !is_on_floor() && doubleJumped == false:
+				doubleJumped = true
+				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+				#doubleJumpCooldownTimer = doubleJumpCooldown
+			velocity.y = JUMP_VELOCITY
+		if is_on_floor() && doubleJumped == true:
+			doubleJumped = false
 
 		if unzoom == 1:
 			raycastHolder.rotation.x = lerp(raycastHolder.rotation.x, 0.0, 10 * delta)

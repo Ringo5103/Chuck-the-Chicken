@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccgsawv5421s5"]
+[gd_scene load_steps=8 format=3 uid="uid://bycyfp3xamtyt"]
 
-[ext_resource type="Script" uid="uid://8yqhhkas3wjp" path="res://menu_title.gd" id="1_q75tv"]
+[ext_resource type="Script" path="res://menu_title.gd" id="1_q75tv"]
 [ext_resource type="Texture2D" uid="uid://ctjdno5j7ha2d" path="res://assets/menu/LOGO2.png" id="1_weaej"]
 [ext_resource type="Texture2D" uid="uid://ccatquhq8rkvl" path="res://assets/menu/istockphoto-1047558154-612x612.jpg" id="2_k4cr3"]
 [ext_resource type="Texture2D" uid="uid://b47wuv0lmgbao" path="res://assets/menu/Chuck.png" id="3_q75tv"]
