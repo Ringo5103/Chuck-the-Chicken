@@ -131,6 +131,7 @@ func _physics_process(delta):
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
 		var direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		var moveSpeed = SPEED
+		
 		if running == true:
 			moveSpeed *= runSpeedMult
 		if direction:
@@ -150,6 +151,25 @@ func _physics_process(delta):
 			$AnimationPlayer.speed_scale = 1
 		if !is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
 			$AnimationPlayer.stop()
+			
+			
+		if (direction != Vector3(0.0, 0.0, 0.0)) && Input.is_action_just_pressed("run") && (is_on_floor() == true):
+			$AnimationPlayer.play("Run")
+			$AnimationPlayer.speed_scale = 4
+			runSpeedMult = 2
+		elif Input.is_action_just_released("run") == true && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Run":
+			$AnimationPlayer.play("RESET")
+			$AnimationPlayer.speed_scale = 1
+			
+		if !is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Run":
+			$AnimationPlayer.play("RESET")
+		
+		if doubleJumped == true:
+			$AnimationPlayer.play("DoubleJump")
+			$AnimationPlayer.speed_scale = 10
+			
+		if is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "DoubleJump":
+			$AnimationPlayer.play("RESET")
 		move_and_slide()
 		
 		# Handle jump.
