@@ -269,5 +269,6 @@ max_polyphony = 10
 libraries = {
 &"": SubResource("AnimationLibrary_qjkh3")
 }
+speed_scale = 4.0
 
 [editable path="Chuck2"]
