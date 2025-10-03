@@ -36,11 +36,14 @@ var interactSelected = 0
 var interactMenuOpen = false
 var controllable = true
 
+var timeSinceJump : float = 0
 var doubleJumped = false
 var doubleJumpCooldown = 3
 var doubleJumpCooldownTimer : float = 0
+var jumpedRotation 
+var prevYRot : float
 
-@export var runSpeedMult : float = 1
+@export var runSpeedMult : float = 2
 @export var reachDistance = 2
 @export var raycast : Node3D
 @export var head : Node3D
@@ -137,50 +140,61 @@ func _physics_process(delta):
 		if direction:
 			if is_on_floor():
 				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+			else:
+				if yRotation.rotation.y != prevYRot:
+					var rotChange = yRotation.rotation.y - prevYRot
+					$Chuck2.rotation.y += rotChange
 			velocity.x = direction.x * moveSpeed
 			velocity.z = direction.z * moveSpeed
 		else:
 			velocity.x = move_toward(velocity.x, 0, moveSpeed)
 			velocity.z = move_toward(velocity.z, 0, moveSpeed)
-		if (direction != Vector3(0.0, 0.0, 0.0)) && ($AnimationPlayer.is_playing() == false) && (is_on_floor() == true):
-			print("Walk")
-			$AnimationPlayer.play("Walk")
-			$AnimationPlayer.speed_scale = 2
-		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
-			$AnimationPlayer.stop()
-			$AnimationPlayer.speed_scale = 1
-		if !is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Walk":
-			$AnimationPlayer.stop()
-			
-			
-		if (direction != Vector3(0.0, 0.0, 0.0)) && Input.is_action_just_pressed("run") && (is_on_floor() == true):
-			$AnimationPlayer.play("Run")
-			$AnimationPlayer.speed_scale = 4
-			runSpeedMult = 2
-		elif Input.is_action_just_released("run") == true && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Run":
-			$AnimationPlayer.play("RESET")
-			$AnimationPlayer.speed_scale = 1
-			
-		if !is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "Run":
-			$AnimationPlayer.play("RESET")
 		
-		if doubleJumped == true:
-			$AnimationPlayer.play("DoubleJump")
-			$AnimationPlayer.speed_scale = 10
-			
-		if is_on_floor() && $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "DoubleJump":
+		if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
+			print("Walk")
+			if $AnimationPlayer.is_playing() == false:
+				if running == true:
+					$AnimationPlayer.play("Run_2")
+				else:
+					$AnimationPlayer.play("Walk")
+			elif $AnimationPlayer.current_animation == "Walk" && running == true:
+					$AnimationPlayer.play("Run_2")
+			elif $AnimationPlayer.current_animation == "Run_2" && running == false:
+					$AnimationPlayer.play("Walk")
+		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not moving and animation "walk" or "run" is playing
 			$AnimationPlayer.play("RESET")
+		if !is_on_floor() && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not on the floor and animation "walk" or "run" is playing
+			$AnimationPlayer.play("RESET")
+		#if is_on_floor() && ($AnimationPlayer.current_animation == "DoubleJump" || $AnimationPlayer.current_animation == "Jump") && $AnimationPlayer.is_playing():
+			#$AnimationPlayer.play("RESET")
+		if timeSinceJump > 0:
+			timeSinceJump += delta
+			
 		move_and_slide()
 		
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
 			if !is_on_floor() && doubleJumped == false:
 				doubleJumped = true
-				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+				$AnimationPlayer.play("DoubleJump")
+				#$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
 				#doubleJumpCooldownTimer = doubleJumpCooldown
+			else:
+				$AnimationPlayer.play("Jump")
+			timeSinceJump += delta
 			velocity.y = JUMP_VELOCITY
-		if is_on_floor() && doubleJumped == true:
-			doubleJumped = false
+			jumpedRotation = $Chuck2.rotation.y
+		if is_on_floor():
+			if doubleJumped == true:		#reset after double jump
+				$AnimationPlayer.play("RESET")
+				print("touched ground after double jump")
+				doubleJumped = false
+				timeSinceJump = 0
+				jumpedRotation = null
+			elif timeSinceJump >= 0.05:		#reset after single jump
+				$AnimationPlayer.play("RESET")
+				timeSinceJump = 0
+				jumpedRotation = null
 
 		if unzoom == 1:
 			raycastHolder.rotation.x = lerp(raycastHolder.rotation.x, 0.0, 10 * delta)
@@ -205,6 +219,8 @@ func _physics_process(delta):
 #			weaponBob(velocity.length(), delta)
 			
 func _process(delta):
+	if prevYRot != yRotation.rotation.y:
+		prevYRot = yRotation.rotation.y
 	#$"/root/World/SubViewportContainer/SubViewport/PlayerCam2".global_transform = camera.global_transform
 
 #	if (Input.is_action_just_pressed("scroll up") || Input.is_action_just_pressed("scroll down")) && reloading == false && interactMenuOpen == false:		#change weapon begin

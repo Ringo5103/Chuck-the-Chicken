@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cqrk4ok22hajy"]
+
+[ext_resource type="Texture2D" uid="uid://cuo18kn3xrm8l" path="res://player/model/ChuckMaterials/Chuck2_attach_001C19C0_material_0_baseColor - Copy.png" id="1_6owvk"]
+
+[resource]
+resource_name = "attach_001C19C0_material_0"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_6owvk")
+roughness = 0.6
