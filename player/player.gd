@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.3
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
 var equipped = null
 var aimSensitivity : float = 1
 var sensitivityMult : float = 2.5
@@ -42,6 +42,12 @@ var doubleJumpCooldown = 3
 var doubleJumpCooldownTimer : float = 0
 var jumpedRotation 
 var prevYRot : float
+var velocityAdditions : Vector3 = Vector3(0.0, 0.0, 0.0)
+var dashDuration : float = 2 #dash duration in seconds
+var dashTimer : float = 0
+var dashMoveModifier = 0
+@onready var dashVelocity = JUMP_VELOCITY / 2
+
 
 @export var runSpeedMult : float = 2
 @export var reachDistance = 2
@@ -135,20 +141,36 @@ func _physics_process(delta):
 		var direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		var moveSpeed = SPEED
 		
+		if dashTimer > 0:
+			dashTimer -= delta
+			dashMoveModifier = dashVelocity * dashTimer
+			if dashTimer <= 0:
+				dashTimer = 0
+				dashMoveModifier = 0
+		
+		
+		if doubleJumped == true:
+			$Chuck2.rotation.y = yRotation.rotation.y
+		elif direction:
+			$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+		
 		if running == true:
 			moveSpeed *= runSpeedMult
 		if direction:
-			if is_on_floor():
-				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
-			else:
-				if yRotation.rotation.y != prevYRot:
-					var rotChange = yRotation.rotation.y - prevYRot
-					$Chuck2.rotation.y += rotChange
+			#if is_on_floor():
+			#else:
+				#if yRotation.rotation.y != prevYRot:
+					#var rotChange = yRotation.rotation.y - prevYRot
+					#$Chuck2.rotation.y += rotChange
 			velocity.x = direction.x * moveSpeed
 			velocity.z = direction.z * moveSpeed
 		else:
 			velocity.x = move_toward(velocity.x, 0, moveSpeed)
 			velocity.z = move_toward(velocity.z, 0, moveSpeed)
+		
+		var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
+		print(dashDirection)
+		velocity += dashDirection * dashMoveModifier
 		
 		if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
 			print("Walk")
@@ -172,23 +194,35 @@ func _physics_process(delta):
 			
 		move_and_slide()
 		
+		var zoomModifier = 5
+		if Input.is_action_just_pressed("zoom in") && camera.position.z > 1.031:
+			camera.position.z -= 0.1 * zoomModifier
+			camera.position.y -= 0.0315 * zoomModifier
+		elif Input.is_action_just_pressed("zoom out") && camera.position.z < 14.531:
+			camera.position.z += 0.1 * zoomModifier
+			camera.position.y += 0.0315 * zoomModifier
+		
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
 			if !is_on_floor() && doubleJumped == false:
 				doubleJumped = true
 				$AnimationPlayer.play("DoubleJump")
+				#velocity.z -= JUMP_VELOCITY * 2
+				dashTimer = dashDuration
 				#$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
 				#doubleJumpCooldownTimer = doubleJumpCooldown
 			else:
 				$AnimationPlayer.play("Jump")
 			timeSinceJump += delta
-			velocity.y = JUMP_VELOCITY
+			velocity.y += JUMP_VELOCITY
 			jumpedRotation = $Chuck2.rotation.y
 		if is_on_floor():
 			if doubleJumped == true:		#reset after double jump
 				$AnimationPlayer.play("RESET")
 				print("touched ground after double jump")
 				doubleJumped = false
+				dashTimer = 0
+				dashMoveModifier = 0
 				timeSinceJump = 0
 				jumpedRotation = null
 			elif timeSinceJump >= 0.05:		#reset after single jump
@@ -208,6 +242,7 @@ func _physics_process(delta):
 			if unzoom >= 0:
 				unzoom = 0
 				mouseInput = Vector2.ZERO
+				
 
 #		if zoomed == false && unzoom == 0:
 #			#raycastHolder.rotation.x = lerp(raycastHolder.rotation.x, 0.0, 10 * delta)

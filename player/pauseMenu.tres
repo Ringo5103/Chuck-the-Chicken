@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cd4wwtxm7gh3s"]
+
+[ext_resource type="FontFile" uid="uid://covg4gmghf1em" path="res://assets/EightBitDragon-anqx.ttf" id="1_kibrt"]
+
+[resource]
+default_font = ExtResource("1_kibrt")
+default_font_size = 20
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_kibrt")
