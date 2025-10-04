@@ -14,7 +14,9 @@ config/name="Chuck the Chicken"
 config/version="0.1"
 run/main_scene="uid://bycyfp3xamtyt"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/image="uid://dqt6ykyou4otr"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
