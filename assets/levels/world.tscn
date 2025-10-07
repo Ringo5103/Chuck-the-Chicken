@@ -1,4 +1,4 @@
-[gd_scene load_steps=224 format=4 uid="uid://c0gf2mbrxe8np"]
+[gd_scene load_steps=225 format=4 uid="uid://c0gf2mbrxe8np"]
 
 [ext_resource type="Script" uid="uid://x6wjp5itntpf" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_legw5"]
 [ext_resource type="AudioStream" uid="uid://dhydyhe385dvx" path="res://assets/music/Chuck the Chicken - Field Zone.mp3" id="1_re8x6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://de7gd67suehfb" path="res://assets/levels/map files/textures/doors/113old32.png" id="11_2td3e"]
 [ext_resource type="Texture2D" uid="uid://dxpfr305ll1u0" path="res://assets/levels/map files/textures/tiny_textures1/Wood/Wood_11-128x128.png" id="12_4fyhe"]
 [ext_resource type="Texture2D" uid="uid://bnbct4dsugaf3" path="res://assets/levels/map files/textures/doors/18_inner32.png" id="13_imf3b"]
+[ext_resource type="PackedScene" uid="uid://bsuekoxca47yt" path="res://assets/npcs/chao.tscn" id="17_d4a5q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrd2w"]
 diffuse_mode = 3
@@ -1637,3 +1638,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.72048, 32.51756, -10.7229
 
 [node name="Ring46" parent="Rings" instance=ExtResource("10_lmpr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.039331, 11.940443, 55.05865)
+
+[node name="Chao" type="Node3D" parent="Rings"]
+
+[node name="Chao" parent="Rings/Chao" instance=ExtResource("17_d4a5q")]
+transform = Transform3D(0.6901502, 0, -0.72366613, 0, 1, 0, 0.72366613, 0, 0.6901502, 17.228962, -1, -46.855167)
+
+[node name="Chao2" parent="Rings/Chao" instance=ExtResource("17_d4a5q")]
+transform = Transform3D(0.79828876, 0, -0.6022749, 0, 1, 0, 0.6022749, 0, 0.79828876, 12.939474, -1, -51.324097)
+
+[node name="Chao3" parent="Rings/Chao" instance=ExtResource("17_d4a5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.140937, -1, -54.389385)
+
+[node name="Chao4" parent="Rings/Chao" instance=ExtResource("17_d4a5q")]
+transform = Transform3D(0.8399231, 0, 0.5427054, 0, 1, 0, -0.5427054, 0, 0.8399231, -1.5526681, -0.9999999, -46.37868)

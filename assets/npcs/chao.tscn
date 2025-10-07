@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsuekoxca47yt"]
+
+[ext_resource type="PackedScene" uid="uid://ddljjkvpxt7a3" path="res://assets/npcs/Chao.gltf" id="1_lo4lc"]
+
+[node name="Chao" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_lo4lc")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.040162086, 0, -0.20114613)
