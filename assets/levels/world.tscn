@@ -1501,76 +1501,76 @@ directional_shadow_fade_start = 1.0
 [node name="Rings" type="Node3D" parent="."]
 
 [node name="Ring" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -33.47393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4892, 6.5480146, -36.568375)
 
 [node name="Ring2" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -29.472513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.74237, 2.6869483, -36.449768)
 
 [node name="Ring3" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -25.640507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.52319, 12.505115, -29.532824)
 
 [node name="Ring4" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -21.63909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.54978, 15.727096, -32.438103)
 
 [node name="Ring5" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -17.86106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.551178, 15.76745, -31.51719)
 
 [node name="Ring6" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016162, -13.859642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.19827, 2.7489953, -36.397335)
 
 [node name="Ring7" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -33.47393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3693, 15.715943, -32.497124)
 
 [node name="Ring8" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -29.472513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.016129, 11.835182, 32.081154)
 
 [node name="Ring9" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -25.640507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.021454, 17.692211, 35.926105)
 
 [node name="Ring10" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -21.63909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.054573, 23.62139, 39.97009)
 
 [node name="Ring11" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -17.86106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.38301, 15.706594, -31.512972)
 
 [node name="Ring12" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8727903, 0.8016162, -13.859642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058356, 0.1155808, -60.061806)
 
 [node name="Ring13" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -33.47393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5042, 7.4672966, -34.471344)
 
 [node name="Ring14" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -29.472513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.074516, 6.96408, 27.922024)
 
 [node name="Ring15" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -25.640507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.621735, 14.433829, 60.156105)
 
 [node name="Ring16" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -21.63909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.12076, 2.8696566, 24.006866)
 
 [node name="Ring17" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -17.86106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.022335, 9.678489, 2.4359274)
 
 [node name="Ring18" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23897, 0.8016162, -13.859642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1236, 4.786932, -8.436819)
 
 [node name="Ring19" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -33.47393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.502934, 9.638426, -30.481787)
 
 [node name="Ring20" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -29.472513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.156252, 8.024195, 44.84417)
 
 [node name="Ring21" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -25.640507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.918274, 14.360758, 58.924126)
 
 [node name="Ring22" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -21.63909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.86354, 14.655402, 59.946766)
 
 [node name="Ring23" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -17.86106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.905884, 4.7943316, -8.340787)
 
 [node name="Ring24" parent="Rings" instance=ExtResource("10_lmpr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.547596, 0.8016162, -13.859642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.86639, 8.666082, 3.5680587)
 
 [node name="Ring25" parent="Rings" instance=ExtResource("10_lmpr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.986504, 3.6358142, -14.463481)
@@ -1634,3 +1634,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.72048, 32.51756, -11.9083
 
 [node name="Ring45" parent="Rings" instance=ExtResource("10_lmpr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.72048, 32.51756, -10.722996)
+
+[node name="Ring46" parent="Rings" instance=ExtResource("10_lmpr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.039331, 11.940443, 55.05865)
