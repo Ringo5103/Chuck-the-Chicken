@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://de7gd67suehfb" path="res://assets/levels/map files/textures/doors/113old32.png" id="11_2td3e"]
 [ext_resource type="Texture2D" uid="uid://dxpfr305ll1u0" path="res://assets/levels/map files/textures/tiny_textures1/Wood/Wood_11-128x128.png" id="12_4fyhe"]
 [ext_resource type="Texture2D" uid="uid://bnbct4dsugaf3" path="res://assets/levels/map files/textures/doors/18_inner32.png" id="13_imf3b"]
-[ext_resource type="PackedScene" uid="uid://bsuekoxca47yt" path="res://assets/npcs/chao.tscn" id="17_d4a5q"]
+[ext_resource type="PackedScene" path="res://assets/npcs/chao.tscn" id="17_d4a5q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrd2w"]
 diffuse_mode = 3
@@ -1487,6 +1487,9 @@ transform = Transform3D(0.58801115, 0, 0.8088528, 0, 1, 0, -0.8088528, 0, 0.5880
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010568261, 0)
 collision_layer = 2
 collision_mask = 5
+JUMP_VELOCITY = 9
+runSpeedMult = 2.0
+reachDistance = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_687qm")

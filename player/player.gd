@@ -1,6 +1,6 @@
 extends CharacterBody3D
 @export var SPEED = 5		#default is 3
-@export var JUMP_VELOCITY = 10
+@export var JUMP_VELOCITY = 9
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
@@ -26,7 +26,7 @@ var defaultWeaponHolderPos : Vector3
 var mouseInput : Vector2
 var reloading = false
 var running = false
-var zoomed = false
+var aiming = false
 var zoom = 0
 var unzoom = 0
 var equippedWeapon
@@ -49,6 +49,7 @@ var dashMoveModifier = 0
 @onready var dashVelocity = JUMP_VELOCITY / 2
 
 
+
 @export var runSpeedMult : float = 2
 @export var reachDistance = 2
 @export var raycast : Node3D
@@ -61,6 +62,7 @@ var dashMoveModifier = 0
 @export var crosshairLabelBelow : Node3D
 @export var yRotation : Node3D
 @export var ringLabel : Control
+@export var gunArm : Node3D
 
 func _ready():
 	spawnPoint = global_transform
@@ -81,7 +83,7 @@ func _unhandled_input(event):
 	#		trippylaugh()
 
 	if Input.is_action_just_pressed("run"):
-		if zoomed == false:
+		if aiming == false:
 			running = true
 #			$Head/CameraAnimator.play("sprint")
 	elif Input.is_action_just_released("run"):
@@ -97,35 +99,31 @@ func _unhandled_input(event):
 			$AnimationPlayer.play_backwards("crouch")
 			crouched = false
 
-#	if Input.is_action_just_pressed("aim"):
-#		startAim()
-#	elif Input.is_action_just_released("aim"):
-#		stopAim()
+	if Input.is_action_just_pressed("aim"):
+		startAim()
+		print("aim")
+	elif Input.is_action_just_released("aim"):
+		stopAim()
+
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			if zoomed == false:
+			if aiming == false:
 				yRotation.rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 				mouseInput = event.relative
-			elif zoomed == true:
-				rotate_y(-event.relative.x * 0.005 * (.1 * aimSensitivity * sensitivityMult))
-				head.rotate_x(-event.relative.y * 0.005 * (.1 * aimSensitivity * sensitivityMult))
+			elif aiming == true:
+				yRotation.rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
+				var prevHeadX = head.rotation.x
+				head.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+				mouseInput = event.relative
+				if prevHeadX != head.rotation.x:
+					gunArm.rotation.z += prevHeadX - head.rotation.x
 
-				raycastHolder.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
-				raycast.rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
-				if equippedWeapon:
-					equippedWeapon.rotate_y(-event.relative.x * 0.005 * (aimSensitivity * sensitivityMult))
-					if equippedWeapon.aimRotation == "x":
-						equippedWeapon.model.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
-					elif equippedWeapon.aimRotation == "-x":
-						equippedWeapon.model.rotate_x(event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
-					elif equippedWeapon.aimRotation == "z":
-						equippedWeapon.model.rotate_z(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
-					elif equippedWeapon.aimRotation == "-z":
-						equippedWeapon.model.rotate_z(event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -138,9 +136,10 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
-		var direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var direction
 		var moveSpeed = SPEED
-		
+		if timeSinceJump > 0:
+			timeSinceJump += delta
 		if dashTimer > 0:
 			dashTimer -= delta
 			dashMoveModifier = dashVelocity * dashTimer
@@ -148,51 +147,76 @@ func _physics_process(delta):
 				dashTimer = 0
 				dashMoveModifier = 0
 		
+		if aiming == false:
+			direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-		if doubleJumped == true:
-			$Chuck2.rotation.y = yRotation.rotation.y
-		elif direction:
-			$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+			if doubleJumped == true:
+				$Chuck2.rotation.y = yRotation.rotation.y
+			elif direction:
+				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
 		
-		if running == true:
-			moveSpeed *= runSpeedMult
-		if direction:
-			#if is_on_floor():
-			#else:
-				#if yRotation.rotation.y != prevYRot:
-					#var rotChange = yRotation.rotation.y - prevYRot
-					#$Chuck2.rotation.y += rotChange
-			velocity.x = direction.x * moveSpeed
-			velocity.z = direction.z * moveSpeed
-		else:
-			velocity.x = move_toward(velocity.x, 0, moveSpeed)
-			velocity.z = move_toward(velocity.z, 0, moveSpeed)
+			if running == true:
+				moveSpeed *= runSpeedMult
+			if direction:
+				#if is_on_floor():
+				#else:
+					#if yRotation.rotation.y != prevYRot:
+						#var rotChange = yRotation.rotation.y - prevYRot
+						#$Chuck2.rotation.y += rotChange
+				velocity.x = direction.x * moveSpeed
+				velocity.z = direction.z * moveSpeed
+			else:
+				velocity.x = move_toward(velocity.x, 0, moveSpeed)
+				velocity.z = move_toward(velocity.z, 0, moveSpeed)
 		
-		var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
-		print(dashDirection)
-		velocity += dashDirection * dashMoveModifier
-		
-		if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
-			print("Walk")
-			if $AnimationPlayer.is_playing() == false:
-				if running == true:
-					$AnimationPlayer.play("Run_2")
-				else:
-					$AnimationPlayer.play("Walk")
-			elif $AnimationPlayer.current_animation == "Walk" && running == true:
-					$AnimationPlayer.play("Run_2")
-			elif $AnimationPlayer.current_animation == "Run_2" && running == false:
-					$AnimationPlayer.play("Walk")
-		elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not moving and animation "walk" or "run" is playing
-			$AnimationPlayer.play("RESET")
-		if !is_on_floor() && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not on the floor and animation "walk" or "run" is playing
-			$AnimationPlayer.play("RESET")
-		#if is_on_floor() && ($AnimationPlayer.current_animation == "DoubleJump" || $AnimationPlayer.current_animation == "Jump") && $AnimationPlayer.is_playing():
-			#$AnimationPlayer.play("RESET")
-		if timeSinceJump > 0:
-			timeSinceJump += delta
+			var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
+			velocity += dashDirection * dashMoveModifier
+			if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
+				if $AnimationPlayer.is_playing() == false:
+					if running == true:
+						$AnimationPlayer.play("Run_2")
+					else:
+						$AnimationPlayer.play("Walk")
+				elif $AnimationPlayer.current_animation == "Walk" && running == true:
+						$AnimationPlayer.play("Run_2")
+				elif $AnimationPlayer.current_animation == "Run_2" && running == false:
+						$AnimationPlayer.play("Walk")
+			elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not moving and animation "walk" or "run" is playing
+				$AnimationPlayer.play("RESET")
+			if !is_on_floor() && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "Walk" || $AnimationPlayer.current_animation == "Run_2"):		#if not on the floor and animation "walk" or "run" is playing
+				$AnimationPlayer.play("RESET")
+			#if is_on_floor() && ($AnimationPlayer.current_animation == "DoubleJump" || $AnimationPlayer.current_animation == "Jump") && $AnimationPlayer.is_playing():
+				#$AnimationPlayer.play("RESET")
 			
-		move_and_slide()
+			move_and_slide()
+			# Handle jump.
+			if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
+				if !is_on_floor() && doubleJumped == false:
+					doubleJumped = true
+					$AnimationPlayer.play("DoubleJump")
+					#velocity.z -= JUMP_VELOCITY * 2
+					dashTimer = dashDuration
+					#$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+					#doubleJumpCooldownTimer = doubleJumpCooldown
+				else:
+					$AnimationPlayer.play("Jump")
+				timeSinceJump += delta
+				velocity.y += JUMP_VELOCITY
+				jumpedRotation = $Chuck2.rotation.y
+			if is_on_floor():					#reset after landing
+				if doubleJumped == true:		#reset after double jump
+					$AnimationPlayer.play("RESET")
+					print("touched ground after double jump")
+					doubleJumped = false
+					dashTimer = 0
+					dashMoveModifier = 0
+					timeSinceJump = 0
+					jumpedRotation = null
+				elif timeSinceJump >= 0.05:		#reset after single jump
+					$AnimationPlayer.play("RESET")
+					timeSinceJump = 0
+					jumpedRotation = null
+		
 		
 		var zoomModifier = 5
 		if Input.is_action_just_pressed("zoom in") && camera.position.z > 1.031:
@@ -202,33 +226,7 @@ func _physics_process(delta):
 			camera.position.z += 0.1 * zoomModifier
 			camera.position.y += 0.0315 * zoomModifier
 		
-		# Handle jump.
-		if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
-			if !is_on_floor() && doubleJumped == false:
-				doubleJumped = true
-				$AnimationPlayer.play("DoubleJump")
-				#velocity.z -= JUMP_VELOCITY * 2
-				dashTimer = dashDuration
-				#$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
-				#doubleJumpCooldownTimer = doubleJumpCooldown
-			else:
-				$AnimationPlayer.play("Jump")
-			timeSinceJump += delta
-			velocity.y += JUMP_VELOCITY
-			jumpedRotation = $Chuck2.rotation.y
-		if is_on_floor():
-			if doubleJumped == true:		#reset after double jump
-				$AnimationPlayer.play("RESET")
-				print("touched ground after double jump")
-				doubleJumped = false
-				dashTimer = 0
-				dashMoveModifier = 0
-				timeSinceJump = 0
-				jumpedRotation = null
-			elif timeSinceJump >= 0.05:		#reset after single jump
-				$AnimationPlayer.play("RESET")
-				timeSinceJump = 0
-				jumpedRotation = null
+		
 
 		if unzoom == 1:
 			raycastHolder.rotation.x = lerp(raycastHolder.rotation.x, 0.0, 10 * delta)
@@ -244,7 +242,7 @@ func _physics_process(delta):
 				mouseInput = Vector2.ZERO
 				
 
-#		if zoomed == false && unzoom == 0:
+#		if aiming == false && unzoom == 0:
 #			#raycastHolder.rotation.x = lerp(raycastHolder.rotation.x, 0.0, 10 * delta)
 #			#raycast.rotation.y = lerp(raycast.rotation.y, 0.0, 10 * delta)
 #
@@ -269,18 +267,17 @@ func _process(delta):
 	if spinning == true:
 		head.rotation_degrees.y += 25
 
+	if aiming == true:
+		$Chuck2.rotation.y = yRotation.rotation.y
+
 	if kills > lastKills:
-		print(kills)
+		print("kills: " + str(kills))
 	lastKills = kills
 
 	if lastRings != rings:
 		ringLabel.text = str(rings)
 	lastRings = rings
 
-#	if equippedWeapon == null:
-#		crosshair.visible = false
-#	elif equippedWeapon.readied == true:
-#		crosshair.visible = true
 
 func die():
 	#dying = true
@@ -301,7 +298,7 @@ func getInteraction():
 	crosshairLabelBelow.get_children()[0].visible = false
 	crosshairLabelAbove.get_children()[0].visible = false
 	interactMenuOpen = false
-	if zoomed == false && raycast.is_colliding() && distanceTo <= reachDistance:			#interact
+	if aiming == false && raycast.is_colliding() && distanceTo <= reachDistance:			#interact
 		var collider = raycast.get_collider()
 		if collider != null:
 			if collider.is_in_group("Interactable"):
@@ -327,13 +324,13 @@ func getInteraction():
 					if interact.size() < 3:
 						crosshairLabel.text = pressText + interact[0]
 						if Input.is_action_just_pressed("interact up") || Input.is_action_just_pressed("scroll up"):
-							print(interactSelected)
+							print("interactSelected" + str(interactSelected))
 							if interactSelected < interact.size()-1:
 								interactSelected += 1
 							else:
 								interactSelected = 0
 						elif Input.is_action_just_pressed("interact down") || Input.is_action_just_pressed("scroll down"):
-							print(interactSelected)
+							print("interactSelected" + str(interactSelected))
 							if interactSelected > 0:
 								interactSelected -= 1
 							else:
@@ -359,3 +356,17 @@ func pickUpRing(value : float):
 
 func damage():
 	die()
+
+func startAim():
+	if aiming == false && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
+		$AnimationPlayer.play("Aim")
+		aiming = true
+
+func stopAim():
+	if aiming == true && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
+		$AnimationPlayer.play_backwards("Aim")
+		aiming = false
+
+func shoot():
+	if aiming == true && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()):		#if aiming and aim animation not playing
+		$AnimationPlayer.play("Shoot")

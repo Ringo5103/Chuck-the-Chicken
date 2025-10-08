@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgf7f06a01qbe"]
+
+[ext_resource type="PackedScene" uid="uid://d3pu2xkxnb4bl" path="res://player/gun/chuckgun.glb" id="1_syudp"]
+[ext_resource type="Script" uid="uid://b7j1igspyniyr" path="res://player/gun/chuckgun.gd" id="2_bwrdo"]
+
+[node name="chuckgun" instance=ExtResource("1_syudp")]
+script = ExtResource("2_bwrdo")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="1"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+max_polyphony = 10
