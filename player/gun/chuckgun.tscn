@@ -1,12 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgf7f06a01qbe"]
+[gd_scene load_steps=5 format=3 uid="uid://dgf7f06a01qbe"]
 
 [ext_resource type="PackedScene" uid="uid://d3pu2xkxnb4bl" path="res://player/gun/chuckgun.glb" id="1_syudp"]
 [ext_resource type="Script" uid="uid://b7j1igspyniyr" path="res://player/gun/chuckgun.gd" id="2_bwrdo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bwrdo"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 100.0
+radial_segments = 4
+rings = 2
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwrdo"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.9851133, 7.508397e-06, 1.347661e-06, 0.7294118)
+emission_enabled = true
+emission = Color(0.9333264, 4.813075e-06, 9.62615e-07, 1)
+emission_energy_multiplier = 1.5
 
 [node name="chuckgun" instance=ExtResource("1_syudp")]
 script = ExtResource("2_bwrdo")
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="1"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.18286556, 0)
+target_position = Vector3(0, -100, 0)
+collision_mask = 25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RayCast3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+visible = false
+mesh = SubResource("CylinderMesh_bwrdo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bwrdo")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 max_polyphony = 10

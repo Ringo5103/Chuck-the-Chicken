@@ -1351,7 +1351,7 @@ _data = {
 &"Walk": SubResource("Animation_g6k8r")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder", "yRotation", "ringLabel", "gunArm")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder", "yRotation", "ringLabel", "gunArm", "gun")]
 script = ExtResource("1_oul6g")
 SPEED = 10
 raycast = NodePath("Y_Rotation/Head/PlayerCam/RayCastHolder/RayCast3D")
@@ -1362,6 +1362,7 @@ raycastHolder = NodePath("Y_Rotation/Head/PlayerCam/RayCastHolder")
 yRotation = NodePath("Y_Rotation")
 ringLabel = NodePath("Y_Rotation/Head/PlayerCam/CanvasLayer/Rings/Label")
 gunArm = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28")
+gun = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28/n025_object_001BEAF4/n026_object_001BEAC0/n027_object_001BEA8C/chuckgun")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -1386,7 +1387,7 @@ transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -0.0
 transform = Transform3D(0.91206306, 1.6763867e-08, 0.41005057, -1.8731189e-08, 1, 7.8079054e-10, -0.4100504, -8.392874e-09, 0.912063, 0.17184436, 0.0067567993, -0.030968845)
 
 [node name="chuckgun" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28/n025_object_001BEAF4/n026_object_001BEAC0/n027_object_001BEA8C" index="2" instance=ExtResource("3_rgyib")]
-transform = Transform3D(0.9443711, 0.26708284, -0.19191127, 0.19914551, 1.5035077e-08, 0.97996974, 0.261733, -0.9636741, -0.053188305, 0.5142728, 0.13664857, 0.28498045)
+transform = Transform3D(0.94437104, 0.26708284, -0.19191127, 0.1991455, 1.5035077e-08, 0.97996974, 0.261733, -0.9636741, -0.053188305, 0.5142728, 0.13664857, 0.28498045)
 
 [node name="n035_object_001BDAF8" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="3"]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999997, -0.0013268003, 0.11202533, 0.14548089)

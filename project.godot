@@ -119,6 +119,7 @@ shoot={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Rings"
 3d_physics/layer_4="Enemies"
+3d_physics/layer_5="NPCs"
 
 [physics]
 

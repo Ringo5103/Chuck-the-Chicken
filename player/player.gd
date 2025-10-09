@@ -63,6 +63,7 @@ var dashMoveModifier = 0
 @export var yRotation : Node3D
 @export var ringLabel : Control
 @export var gunArm : Node3D
+@export var gun : Node3D
 
 func _ready():
 	spawnPoint = global_transform
@@ -147,30 +148,32 @@ func _physics_process(delta):
 				dashTimer = 0
 				dashMoveModifier = 0
 		
+		#if aiming == false:
+		direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+		if doubleJumped == true:
+			$Chuck2.rotation.y = yRotation.rotation.y
+		elif direction:
+			$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
+	
+		if running == true:
+			moveSpeed *= runSpeedMult
+		if direction:
+			#if is_on_floor():
+			#else:
+				#if yRotation.rotation.y != prevYRot:
+					#var rotChange = yRotation.rotation.y - prevYRot
+					#$Chuck2.rotation.y += rotChange
+			velocity.x = direction.x * moveSpeed
+			velocity.z = direction.z * moveSpeed
+		else:
+			velocity.x = move_toward(velocity.x, 0, moveSpeed)
+			velocity.z = move_toward(velocity.z, 0, moveSpeed)
+	
+		var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
+		velocity += dashDirection * dashMoveModifier
+		move_and_slide()
 		if aiming == false:
-			direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		
-			if doubleJumped == true:
-				$Chuck2.rotation.y = yRotation.rotation.y
-			elif direction:
-				$Chuck2.rotation.y = yRotation.rotation.y + -input_dir.angle() + deg_to_rad(270)
-		
-			if running == true:
-				moveSpeed *= runSpeedMult
-			if direction:
-				#if is_on_floor():
-				#else:
-					#if yRotation.rotation.y != prevYRot:
-						#var rotChange = yRotation.rotation.y - prevYRot
-						#$Chuck2.rotation.y += rotChange
-				velocity.x = direction.x * moveSpeed
-				velocity.z = direction.z * moveSpeed
-			else:
-				velocity.x = move_toward(velocity.x, 0, moveSpeed)
-				velocity.z = move_toward(velocity.z, 0, moveSpeed)
-		
-			var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
-			velocity += dashDirection * dashMoveModifier
 			if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
 				if $AnimationPlayer.is_playing() == false:
 					if running == true:
@@ -188,7 +191,7 @@ func _physics_process(delta):
 			#if is_on_floor() && ($AnimationPlayer.current_animation == "DoubleJump" || $AnimationPlayer.current_animation == "Jump") && $AnimationPlayer.is_playing():
 				#$AnimationPlayer.play("RESET")
 			
-			move_and_slide()
+			#move_and_slide()
 			# Handle jump.
 			if Input.is_action_just_pressed("jump") and (is_on_floor() || doubleJumped == false):
 				if !is_on_floor() && doubleJumped == false:
@@ -358,15 +361,18 @@ func damage():
 	die()
 
 func startAim():
-	if aiming == false && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
+	if aiming == false && is_on_floor() && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
 		$AnimationPlayer.play("Aim")
 		aiming = true
+		gun.laserAimToggle()
 
 func stopAim():
 	if aiming == true && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
 		$AnimationPlayer.play_backwards("Aim")
 		aiming = false
+		gun.laserAimToggle()
 
 func shoot():
 	if aiming == true && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()):		#if aiming and aim animation not playing
-		$AnimationPlayer.play("Shoot")
+		if gun.shooting == false:
+			$AnimationPlayer.play("Shoot")
