@@ -46,9 +46,11 @@ var velocityAdditions : Vector3 = Vector3(0.0, 0.0, 0.0)
 var dashDuration : float = 2 #dash duration in seconds
 var dashTimer : float = 0
 var dashMoveModifier = 0
+var damaged = false
 @onready var dashVelocity = JUMP_VELOCITY / 2
-
-
+@onready var ring = preload("res://assets/environment/rings/dropped_ring.tscn")
+@onready var worldRings = $"/root/World/Rings"
+var dropRingsTimer = 0
 
 @export var runSpeedMult : float = 2
 @export var reachDistance = 2
@@ -145,12 +147,18 @@ func _physics_process(delta):
 		if dashTimer > 0:
 			dashTimer -= delta
 			dashMoveModifier = dashVelocity * dashTimer
+			if damaged == true:
+				dashMoveModifier *= -1
 			if dashTimer <= 0:
 				dashTimer = 0
 				dashMoveModifier = 0
+				damaged = false
 		
 		#if aiming == false:
-		direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if damaged == false:
+			direction = (yRotation.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		else:
+			direction = yRotation.transform.basis.z
 	
 		if doubleJumped == true:
 			$Chuck2.rotation.y = yRotation.rotation.y
@@ -209,12 +217,13 @@ func _physics_process(delta):
 				velocity.y += JUMP_VELOCITY
 				jumpedRotation = $Chuck2.rotation.y
 			if is_on_floor():					#reset after landing
+				damaged = false
+				dashTimer = 0
+				dashMoveModifier = 0
 				if doubleJumped == true:		#reset after double jump
 					$AnimationPlayer.play("RESET")
 					print("touched ground after double jump")
 					doubleJumped = false
-					dashTimer = 0
-					dashMoveModifier = 0
 					timeSinceJump = 0
 					jumpedRotation = null
 				elif timeSinceJump >= 0.05:		#reset after single jump
@@ -274,6 +283,11 @@ func _physics_process(delta):
 func _process(delta):
 	if prevYRot != yRotation.rotation.y:
 		prevYRot = yRotation.rotation.y
+	if dropRingsTimer > 0:
+		dropRingsTimer -= delta
+		if dropRingsTimer <= 0:
+			dropRingsTimer = 0
+			dropRings()
 	#$"/root/World/SubViewportContainer/SubViewport/PlayerCam2".global_transform = camera.global_transform
 
 #	if (Input.is_action_just_pressed("scroll up") || Input.is_action_just_pressed("scroll down")) && reloading == false && interactMenuOpen == false:		#change weapon begin
@@ -302,7 +316,8 @@ func _process(delta):
 func die():
 	#dying = true
 	#get_tree().reload_current_scene()
-	$AnimationPlayer.play("Die")
+	#$AnimationPlayer.play("Die")
+	print("damage")
 
 func respawn():
 	Global.totalKills += kills
@@ -375,7 +390,23 @@ func pickUpRing(value : float):
 	$RingSound.play()
 
 func damage():
+	velocity.y += JUMP_VELOCITY
+	#velocity += dashDirection
+	dashTimer = dashDuration
+	damaged = true
+	$AnimationPlayer.play("Jump")
+	timeSinceJump += .001
+	dropRingsTimer = .2
 	die()
+
+func dropRings():
+	if rings > 0:
+		for i in rings/100:
+			rings -= 100
+			var dropRing = ring.instantiate()
+			worldRings.add_child(dropRing)
+			dropRing.global_position = global_position
+			dropRing.global_position.y += 1.5
 
 func startAim():
 	if aiming == false && is_on_floor() && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
