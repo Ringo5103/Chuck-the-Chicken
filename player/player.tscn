@@ -1944,7 +1944,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("raycast", "head", "camera", "weaponHolder", "raycastHolder", "yRotation", "ringLabel", "gunArm", "gun")]
 collision_layer = 2
-collision_mask = 25
+collision_mask = 29
 script = ExtResource("1_oul6g")
 SPEED = 10
 raycast = NodePath("Y_Rotation/Head/PlayerCam/RayCastHolder/RayCast3D")

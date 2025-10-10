@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://5l42jel1bxx5"]
+[gd_scene load_steps=6 format=3 uid="uid://5l42jel1bxx5"]
 
 [ext_resource type="Script" uid="uid://bhdlmrwlkputy" path="res://assets/environment/rings/dropped_ring.gd" id="1_g0adn"]
 
@@ -20,9 +20,11 @@ ring_segments = 5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g0adn"]
 points = PackedVector3Array(-0.056914855, -0.15254544, -0.9113509, -0.05591345, 0.15789801, -0.8953158, 0.9113985, -0.15255362, -0.05673937, -0.65895486, -0.15349904, 0.65895486, -0.8953068, 0.15789646, -0.05591286, 0.6952591, 0.26097345, -0.09052952, 0.65895486, -0.15349904, 0.65895486, -0.66697526, -0.23218183, -0.05555224, -0.51382136, 0.26097345, 0.5138213, 0.6473575, 0.15883406, -0.6473575, -0.51382136, 0.26097345, -0.5138213, -0.65895486, -0.15349904, -0.65895486, 0.49820617, -0.23118448, -0.47046065, 0.055373676, -0.23216309, 0.6670964, 0.6473575, 0.15883406, 0.6473575, 0.056739345, -0.15255362, 0.9113985, -0.9113557, -0.15254626, -0.056915123, 0.65895486, -0.15349904, -0.65895486, 0.89535356, 0.15790449, 0.055740494, -0.6473575, 0.15883406, 0.6473575, 0.51382124, 0.26097345, 0.5138213, 0.09052949, 0.26097345, -0.6952591, -0.6473575, 0.15883406, -0.6473575, -0.055545032, -0.23215106, -0.6670624, 0.6671013, -0.23216483, 0.055374112, -0.055912886, 0.15789646, 0.8953068, -0.6952591, 0.26097345, 0.09052952, 0.056739643, -0.15255444, -0.91140324, -0.49809378, -0.23121327, 0.47051823, -0.9113509, -0.15254545, 0.056914825, 0.09052949, 0.26097345, 0.6952591, 0.51382124, 0.26097345, -0.5138213)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_g0adn"]
+radius = 0.75
+
 [node name="Ring" type="RigidBody3D"]
-collision_layer = 4
-collision_mask = 3
+collision_layer = 32
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_g0adn")
@@ -35,4 +37,12 @@ mesh = SubResource("TorusMesh_lmpr0")
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_g0adn")
 
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_g0adn")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
