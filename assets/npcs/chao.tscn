@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsuekoxca47yt"]
+[gd_scene load_steps=4 format=3 uid="uid://bsuekoxca47yt"]
 
 [ext_resource type="PackedScene" uid="uid://ddljjkvpxt7a3" path="res://assets/npcs/Chao.gltf" id="1_lo4lc"]
+[ext_resource type="Script" uid="uid://bobylvklvhw8i" path="res://assets/npcs/chao.gd" id="1_sikt2"]
 
-[node name="Chao" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo4lc"]
+radius = 0.35
+height = 1.0
+
+[node name="Chao" type="StaticBody3D" groups=["NPC"]]
+collision_layer = 17
+script = ExtResource("1_sikt2")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_lo4lc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.040162086, 0, -0.20114613)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03752303, 0.5034327, -0.24397326)
+shape = SubResource("CapsuleShape3D_lo4lc")

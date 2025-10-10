@@ -16,5 +16,5 @@ func damage(dmg : float):
 			die()
 
 func die():
-	$human.visible = false
+	$Sketchfab_Scene.visible = false
 	set_collision_layer_value(1, false)

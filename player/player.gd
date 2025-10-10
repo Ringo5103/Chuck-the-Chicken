@@ -122,8 +122,9 @@ func _unhandled_input(event):
 				head.rotate_x(-event.relative.y * 0.005 * (aimSensitivity * sensitivityMult))
 				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 				mouseInput = event.relative
-				if prevHeadX != head.rotation.x:
-					gunArm.rotation.z += prevHeadX - head.rotation.x
+				#if prevHeadX != head.rotation.x:
+					#gunArm.rotation.z += prevHeadX - head.rotation.x
+				gunArm.rotation_degrees.z = -head.rotation_degrees.x - 65
 
 
 func _physics_process(delta):
@@ -171,6 +172,7 @@ func _physics_process(delta):
 			velocity.z = move_toward(velocity.z, 0, moveSpeed)
 	
 		var dashDirection = -$Chuck2.global_transform.basis.z.normalized()
+		#if !($AnimationPlayer.is_playing() == true && $AnimationPlayer.current_animation == "Shoot"):
 		velocity += dashDirection * dashMoveModifier
 		move_and_slide()
 		if aiming == false:
@@ -219,7 +221,22 @@ func _physics_process(delta):
 					$AnimationPlayer.play("RESET")
 					timeSinceJump = 0
 					jumpedRotation = null
-		
+		else:
+			if Input.is_action_just_pressed("jump") and is_on_floor():
+				timeSinceJump += delta
+				velocity.y += JUMP_VELOCITY
+				$AnimationPlayer.play("AimJump")
+			if is_on_floor() && timeSinceJump >= 0.05:					#reset after landing
+				$AnimationPlayer.play("AimRESET")
+				timeSinceJump = 0
+				
+			if direction != Vector3(0.0, 0.0, 0.0) && is_on_floor() == true:		#if on the floor and moving, do walk or run animation
+				if $AnimationPlayer.is_playing() == false:
+					$AnimationPlayer.play("AimWalk")
+			elif direction == Vector3(0.0, 0.0, 0.0) && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "AimWalk" || $AnimationPlayer.current_animation == "Run_2"):		#if not moving and animation "walk" or "run" is playing
+				$AnimationPlayer.play("AimRESET")
+			if !is_on_floor() && $AnimationPlayer.is_playing() && ($AnimationPlayer.current_animation == "AimWalk" || $AnimationPlayer.current_animation == "Run_2"):		#if not on the floor and animation "walk" or "run" is playing
+				$AnimationPlayer.play("AimRESET")
 		
 		var zoomModifier = 5
 		if Input.is_action_just_pressed("zoom in") && camera.position.z > 1.031:
@@ -364,15 +381,19 @@ func startAim():
 	if aiming == false && is_on_floor() && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
 		$AnimationPlayer.play("Aim")
 		aiming = true
-		gun.laserAimToggle()
+		var tween = get_tree().create_tween()
+		tween.tween_property(gunArm, "rotation_degrees:z", -head.rotation_degrees.x - 65, .3)
 
 func stopAim():
-	if aiming == true && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
+	#if aiming == true && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing
+	if aiming == true && running == false: 		#if not aiming and running, and if aim animation not playing
 		$AnimationPlayer.play_backwards("Aim")
 		aiming = false
-		gun.laserAimToggle()
+		var tween = get_tree().create_tween()
+		tween.tween_property(gunArm, "rotation_degrees:z", 0, .3)
 
 func shoot():
 	if aiming == true && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()):		#if aiming and aim animation not playing
 		if gun.shooting == false:
-			$AnimationPlayer.play("Shoot")
+			#$AnimationPlayer.play("Shoot")
+			gun.shoot()
