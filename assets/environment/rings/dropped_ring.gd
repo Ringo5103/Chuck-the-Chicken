@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var value : int = 100
+@export var value : int = 1
 var disappearing = false
 var disappeared = false
 var pickUpimer = .5

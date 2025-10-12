@@ -80,9 +80,6 @@ tracks/4/keys = {
 }
 tracks/4/use_blend = true
 
-[sub_resource type="Animation" id="Animation_yw30f"]
-resource_name = "Die"
-
 [sub_resource type="Animation" id="Animation_hg6s5"]
 resource_name = "DoubleJump"
 length = 0.1
@@ -635,6 +632,30 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.3703104, -1.8411608, 1.5707963)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CollisionShape3D:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_boad6"]
@@ -1926,13 +1947,222 @@ tracks/16/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_32hag"]
+resource_name = "Die"
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.36826447)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n010_object_001C229C:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02207225, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n010_object_001C229C:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.7947e-10, 2.0349706e-08, 0.056932643)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.9196319, -0.7773855, -0.8910582)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n035_object_001BDAF8:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.8614836, 0.8033934, -0.9389285)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0/n047_object_001BCAAC/n048_object_001BCA78/n049_object_001BCA44/n052_object_001BC5C0:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.5723432e-07, -1.0917631e-07, 0.8027641)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC/n057_object_001BBB78/n058_object_001BBB44/n059_object_001BBB10/n062_object_001BB670:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.5723432e-07, -1.0917631e-07, 0.8027641)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0999201, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.05820673, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n056_object_001BBBAC:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n046_object_001BCAE0:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n035_object_001BDAF8:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0485896, 0.15959519, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n011_object_001C1B20:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.5762795e-07, -3.576278e-07, -1.5707964)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.7338326, 2.6243902e-07)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkh3"]
 _data = {
 &"Aim": SubResource("Animation_2ieo8"),
 &"AimJump": SubResource("Animation_yllr7"),
 &"AimRESET": SubResource("Animation_kb6p2"),
 &"AimWalk": SubResource("Animation_wodsf"),
-&"Die": SubResource("Animation_yw30f"),
+&"Die": SubResource("Animation_32hag"),
 &"DoubleJump": SubResource("Animation_hg6s5"),
 &"Jump": SubResource("Animation_rgyib"),
 &"RESET": SubResource("Animation_qjkh3"),
@@ -1958,10 +2188,10 @@ gunArm = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object
 gun = NodePath("Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470/n024_object_001BEB28/n025_object_001BEAF4/n026_object_001BEAC0/n027_object_001BEA8C/chuckgun")
 
 [node name="Chuck2" parent="." instance=ExtResource("2_qjkh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07284105, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016000003, 0)
 
 [node name="n001_object_001C2470" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4" index="0"]
-transform = Transform3D(1.0000002, 0, 0, 0, 0.9999996, 0, 0, 0, 0.99999946, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999993, 0, 0, 0)
 
 [node name="n010_object_001C229C" parent="Chuck2/Sketchfab_model/Collada visual scene group/n000_object_001C24A4/n001_object_001C2470" index="0"]
 transform = Transform3D(0.9999994, 0, 0, 0, 0.9999994, 5.6843412e-14, 0, -5.6843392e-14, 0.99999976, 0, 0, 0)

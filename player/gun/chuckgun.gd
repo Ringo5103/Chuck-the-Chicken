@@ -10,7 +10,7 @@ var shooting = false
 @export var damage : float = 50
 @onready var blood = preload("res://player/gun/blood_splash.tscn")
 @export var blood_splash = true
-@export var ringCost = 50
+@export var ringCost = 5
 
 func shoot():
 	if shooting == false && player.rings >= ringCost:

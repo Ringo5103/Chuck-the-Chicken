@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var value : int = 1000
+@export var value : int = 1
 @export var reset_time : float = 3	#in seconds
 var reset_timer : float = 0
 var disappearing = false

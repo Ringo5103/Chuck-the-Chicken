@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://whda3nirp4xv"]
+[gd_scene load_steps=7 format=3 uid="uid://whda3nirp4xv"]
 
 [ext_resource type="Script" uid="uid://bnebeq1r0g4qx" path="res://assets/npcs/enemy.gd" id="1_clt00"]
 [ext_resource type="PackedScene" uid="uid://k78p46oqf4ia" path="res://assets/npcs/human.glb" id="1_krc4b"]
@@ -9,8 +9,14 @@ size = Vector3(0.695, 2.525, 0.44)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ce4n4"]
 size = Vector3(0.85, 2.585, 0.61)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oc4my"]
+size = Vector3(1, 2.5, 1.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0r63"]
+size = Vector3(8, 15, 1)
+
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy", "NPC"]]
-collision_layer = 9
+collision_layer = 25
 collision_mask = 3
 input_ray_pickable = false
 script = ExtResource("1_clt00")
@@ -37,11 +43,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.263454, 0.019
 shape = SubResource("BoxShape3D_clt00")
 
 [node name="DamageArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="DamageBox" type="CollisionShape3D" parent="DamageArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.2870816, 0.019275904)
 shape = SubResource("BoxShape3D_ce4n4")
 
+[node name="EdgeRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107393086, 1.5826337)
+target_position = Vector3(0, -0.25, 0)
+collision_mask = 27
+
+[node name="WallRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.6266437, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 27
+
+[node name="FrontArea" type="Area3D" parent="."]
+collision_layer = 24
+collision_mask = 27
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2901893, 0.98166573)
+shape = SubResource("BoxShape3D_oc4my")
+
+[node name="View" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.9140291, 7.5976057)
+shape = SubResource("BoxShape3D_r0r63")
+
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
 
 [editable path="human"]

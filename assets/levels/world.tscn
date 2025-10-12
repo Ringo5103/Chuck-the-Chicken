@@ -1481,10 +1481,10 @@ shape = SubResource("ConvexPolygonShape3D_vmfh0")
 shape = SubResource("ConvexPolygonShape3D_y1gmf")
 
 [node name="Enemy" parent="." instance=ExtResource("10_erpvd")]
-transform = Transform3D(0.58801115, 0, 0.8088528, 0, 1, 0, -0.8088528, 0, 0.58801115, -10.916172, -0.9529147, -6.302256)
+transform = Transform3D(0.58801115, 0, 0.8088528, 0, 1, 0, -0.8088528, 0, 0.58801115, -10.916172, -0.9529147, -0.60463953)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("9_687qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010568261, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010568261, -7.082589)
 collision_mask = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
