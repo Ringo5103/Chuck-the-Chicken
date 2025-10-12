@@ -402,11 +402,12 @@ func damage():
 func dropRings():
 	if rings > 0:
 		for i in rings/100:
-			rings -= 100
-			var dropRing = ring.instantiate()
-			worldRings.add_child(dropRing)
-			dropRing.global_position = global_position
-			dropRing.global_position.y += 1.5
+			if rings > 100:
+				rings -= 100
+				var dropRing = ring.instantiate()
+				worldRings.add_child(dropRing)
+				dropRing.global_position = global_position
+				dropRing.global_position.y += 1.5
 
 func startAim():
 	if aiming == false && is_on_floor() && running == false && !($AnimationPlayer.current_animation == "Aim" && $AnimationPlayer.is_playing()): 		#if not aiming and running, and if aim animation not playing

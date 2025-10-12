@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://whda3nirp4xv"]
+[gd_scene load_steps=5 format=3 uid="uid://whda3nirp4xv"]
 
 [ext_resource type="Script" uid="uid://bnebeq1r0g4qx" path="res://assets/npcs/enemy.gd" id="1_clt00"]
 [ext_resource type="PackedScene" uid="uid://k78p46oqf4ia" path="res://assets/npcs/human.glb" id="1_krc4b"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ce4n4"]
-radius = 0.3334961
-height = 2.5078125
+[sub_resource type="BoxShape3D" id="BoxShape3D_clt00"]
+size = Vector3(0.695, 2.525, 0.44)
 
-[node name="Enemy" type="RigidBody3D" groups=["Enemy", "NPC"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ce4n4"]
+size = Vector3(0.85, 2.585, 0.61)
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy", "NPC"]]
 collision_layer = 9
 collision_mask = 3
-mass = 75.0
-lock_rotation = true
-contact_monitor = true
-max_contacts_reported = 3
+input_ray_pickable = false
 script = ExtResource("1_clt00")
 
 [node name="human" parent="." instance=ExtResource("1_krc4b")]
@@ -34,9 +33,15 @@ visible = false
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.2567033, 0.002399683)
-shape = SubResource("CapsuleShape3D_ce4n4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.263454, 0.019275904)
+shape = SubResource("BoxShape3D_clt00")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="DamageBox" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0054108277, 1.2870816, 0.019275904)
+shape = SubResource("BoxShape3D_ce4n4")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 
 [editable path="human"]
