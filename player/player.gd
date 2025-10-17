@@ -66,6 +66,7 @@ var dropRingsTimer = 0
 @export var ringLabel : Control
 @export var gunArm : Node3D
 @export var gun : Node3D
+@export var deathScreen : ColorRect
 
 func _ready():
 	spawnPoint = global_transform
@@ -338,6 +339,7 @@ func die():
 	#$AnimationPlayer.play("Die")
 	$AnimationPlayer.play("Die")
 	dead = true
+	deathScreen.visible = true
 
 func respawn():
 	Global.totalKills += kills

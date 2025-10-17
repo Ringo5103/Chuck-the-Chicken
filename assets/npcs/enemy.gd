@@ -38,10 +38,11 @@ func die():
 	set_collision_layer_value(1, false)
 
 func _process(delta):
-	if state == "roaming":
-		roam(delta)
-	elif state == "targeting":
-		targeting(delta)
+	if dead == false:
+		if state == "roaming":
+			roam(delta)
+		elif state == "targeting":
+			targeting(delta)
 
 func targeting(delta):
 	#var direction = (target.position - position).normalized()

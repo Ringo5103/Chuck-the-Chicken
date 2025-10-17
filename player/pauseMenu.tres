@@ -1,9 +1,22 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cd4wwtxm7gh3s"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cd4wwtxm7gh3s"]
 
 [ext_resource type="FontFile" uid="uid://covg4gmghf1em" path="res://assets/EightBitDragon-anqx.ttf" id="1_kibrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kibrt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [resource]
 default_font = ExtResource("1_kibrt")
 default_font_size = 20
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_kibrt")
+Label/styles/normal = SubResource("StyleBoxFlat_kibrt")
